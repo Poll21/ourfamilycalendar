@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1067453864086",
+    "project_id": "our-family-calendar",
+    "storage_bucket": "our-family-calendar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067453864086:android:d4e281c0215a3b51f58ab7",
+        "android_client_info": {
+          "package_name": "com.example.our_family_calendar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHxSGuy0Ytt8F8VEtDyDwYTIvk4yah9ns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
