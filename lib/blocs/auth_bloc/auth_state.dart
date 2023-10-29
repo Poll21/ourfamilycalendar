@@ -2,7 +2,7 @@ part of 'auth_bloc.dart';
 
 @immutable
 class AuthState {
-  final User? user;
+  final MyUser? user;
   final String error;
 
   const AuthState({
@@ -11,7 +11,7 @@ class AuthState {
   });
 
   AuthState copyWith({
-    User? user,
+    MyUser? user,
     String? error,
   }) {
     return AuthState(

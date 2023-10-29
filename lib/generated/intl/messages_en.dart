@@ -21,5 +21,26 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "logScrenn": MessageLookupByLibrary.simpleMessage(
+            "Страница авторизации регистрации"),
+        "log_Authorization":
+            MessageLookupByLibrary.simpleMessage("Авторизация"),
+        "log_Email": MessageLookupByLibrary.simpleMessage("Email"),
+        "log_Login": MessageLookupByLibrary.simpleMessage("Login"),
+        "log_Password1": MessageLookupByLibrary.simpleMessage("Password"),
+        "log_Password2":
+            MessageLookupByLibrary.simpleMessage("Confirm password"),
+        "log_Registration":
+            MessageLookupByLibrary.simpleMessage("Registration"),
+        "log_email_incorrect": MessageLookupByLibrary.simpleMessage(
+            "Incorrect email entered. Please check the entered data!"),
+        "log_empty": MessageLookupByLibrary.simpleMessage(
+            "Это поле обязательно для заполнения."),
+        "log_password_incorrect": MessageLookupByLibrary.simpleMessage(
+            "The password must contain a number, lowercase and uppercase Latin letters"),
+        "log_password_incorrect_one":
+            MessageLookupByLibrary.simpleMessage("Password does not match!"),
+        "log_title": MessageLookupByLibrary.simpleMessage("My Family Calendar")
+      };
 }

@@ -49,6 +49,126 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Страница авторизации регистрации`
+  String get logScrenn {
+    return Intl.message(
+      'Страница авторизации регистрации',
+      name: 'logScrenn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Family Calendar`
+  String get log_title {
+    return Intl.message(
+      'My Family Calendar',
+      name: 'log_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Registration`
+  String get log_Registration {
+    return Intl.message(
+      'Registration',
+      name: 'log_Registration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Авторизация`
+  String get log_Authorization {
+    return Intl.message(
+      'Авторизация',
+      name: 'log_Authorization',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get log_Email {
+    return Intl.message(
+      'Email',
+      name: 'log_Email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get log_Password1 {
+    return Intl.message(
+      'Password',
+      name: 'log_Password1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm password`
+  String get log_Password2 {
+    return Intl.message(
+      'Confirm password',
+      name: 'log_Password2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Это поле обязательно для заполнения.`
+  String get log_empty {
+    return Intl.message(
+      'Это поле обязательно для заполнения.',
+      name: 'log_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Incorrect email entered. Please check the entered data!`
+  String get log_email_incorrect {
+    return Intl.message(
+      'Incorrect email entered. Please check the entered data!',
+      name: 'log_email_incorrect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The password must contain a number, lowercase and uppercase Latin letters`
+  String get log_password_incorrect {
+    return Intl.message(
+      'The password must contain a number, lowercase and uppercase Latin letters',
+      name: 'log_password_incorrect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password does not match!`
+  String get log_password_incorrect_one {
+    return Intl.message(
+      'Password does not match!',
+      name: 'log_password_incorrect_one',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get log_Login {
+    return Intl.message(
+      'Login',
+      name: 'log_Login',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

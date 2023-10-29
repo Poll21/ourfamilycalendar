@@ -1,1 +1,14 @@
-{}
+{
+  "logScrenn": "Страница авторизации регистрации",
+  "log_title": "My Family Calendar",
+  "log_Registration" : "Registration",
+  "log_Authorization" : "Авторизация",
+  "log_Email" : "Email",
+  "log_Password1" : "Password",
+  "log_Password2" : "Confirm password",
+  "log_empty" : "Это поле обязательно для заполнения.",
+  "log_email_incorrect" : "Incorrect email entered. Please check the entered data!",
+  "log_password_incorrect" : "The password must contain a number, lowercase and uppercase Latin letters",
+  "log_password_incorrect_one" : "Password does not match!",
+  "log_Login": "Login"
+}
