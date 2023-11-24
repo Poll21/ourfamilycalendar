@@ -60,6 +60,36 @@ class S {
     );
   }
 
+  /// `Welcome to our family!!!`
+  String get log_reg_title {
+    return Intl.message(
+      'Welcome to our family!!!',
+      name: 'log_reg_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register using your phone number or Email:`
+  String get reg_email_or_phone {
+    return Intl.message(
+      'Register using your phone number or Email:',
+      name: 'reg_email_or_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Authorize by phone number or Email:`
+  String get log_email_or_phone {
+    return Intl.message(
+      'Authorize by phone number or Email:',
+      name: 'log_email_or_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `My Family Calendar`
   String get log_title {
     return Intl.message(
@@ -95,6 +125,16 @@ class S {
     return Intl.message(
       'Email',
       name: 'log_Email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone number`
+  String get log_Phone {
+    return Intl.message(
+      'Phone number',
+      name: 'log_Phone',
       desc: '',
       args: [],
     );
@@ -165,6 +205,36 @@ class S {
     return Intl.message(
       'Login',
       name: 'log_Login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Страница авторизации регистрации`
+  String get profileScreen {
+    return Intl.message(
+      'Страница авторизации регистрации',
+      name: 'profileScreen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save changes`
+  String get prof_sav {
+    return Intl.message(
+      'Save changes',
+      name: 'prof_sav',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Username`
+  String get prof_name {
+    return Intl.message(
+      'Username',
+      name: 'prof_name',
       desc: '',
       args: [],
     );

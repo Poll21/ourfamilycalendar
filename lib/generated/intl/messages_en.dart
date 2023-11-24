@@ -31,16 +31,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "log_Password1": MessageLookupByLibrary.simpleMessage("Password"),
         "log_Password2":
             MessageLookupByLibrary.simpleMessage("Confirm password"),
+        "log_Phone": MessageLookupByLibrary.simpleMessage("Phone number"),
         "log_Registration":
             MessageLookupByLibrary.simpleMessage("Registration"),
         "log_email_incorrect": MessageLookupByLibrary.simpleMessage(
             "Incorrect email entered. Please check the entered data!"),
+        "log_email_or_phone": MessageLookupByLibrary.simpleMessage(
+            "Authorize by phone number or Email:"),
         "log_empty": MessageLookupByLibrary.simpleMessage(
             "Это поле обязательно для заполнения."),
         "log_password_incorrect": MessageLookupByLibrary.simpleMessage(
             "The password must contain a number, lowercase and uppercase Latin letters"),
         "log_password_incorrect_one":
             MessageLookupByLibrary.simpleMessage("Password does not match!"),
-        "log_title": MessageLookupByLibrary.simpleMessage("My Family Calendar")
+        "log_reg_title":
+            MessageLookupByLibrary.simpleMessage("Welcome to our family!!!"),
+        "log_title": MessageLookupByLibrary.simpleMessage("My Family Calendar"),
+        "prof_name": MessageLookupByLibrary.simpleMessage("Username"),
+        "prof_sav": MessageLookupByLibrary.simpleMessage("Save changes"),
+        "profileScreen": MessageLookupByLibrary.simpleMessage(
+            "Страница авторизации регистрации"),
+        "reg_email_or_phone": MessageLookupByLibrary.simpleMessage(
+            "Register using your phone number or Email:")
       };
 }

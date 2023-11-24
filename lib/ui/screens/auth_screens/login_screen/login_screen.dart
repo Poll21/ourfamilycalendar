@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:our_family_calendar/blocs/auth_bloc/auth_bloc.dart';
+import 'package:our_family_calendar/costants/colors.dart';
 import 'package:our_family_calendar/generated/l10n.dart';
+import 'package:our_family_calendar/main_navigation.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -11,11 +13,12 @@ class LoginScreen extends StatefulWidget {
 }
 
 bool _regOrLog = true;
+bool _phonLog = true;
 bool _obscureText2 = true;
 bool _obscureText1 = true;
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController emailController = TextEditingController();
+  TextEditingController emailOrPhoneController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController1 = TextEditingController();
   TextEditingController passwordController2 = TextEditingController();
@@ -48,27 +51,65 @@ class _LoginScreenState extends State<LoginScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 4),
-                        child: Text(
-                          S.of(context).log_Email,
-                        ),
+                      Text(S.of(context).log_reg_title),
+                      Text((_regOrLog)
+                          ? S.of(context).reg_email_or_phone
+                          : S.of(context).log_email_or_phone),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              (_phonLog)
+                                  ? S.of(context).log_Phone
+                                  : S.of(context).log_Email,
+                            ),
+                          ),
+
+                          IconButton(
+                              onPressed: () {
+                                if(!_phonLog) setState(() {
+                                  _phonLog = !_phonLog;
+                                });
+                              },
+                              icon:
+                                   Icon(Icons.phone, color: (_phonLog) ? enableColor : desableColor,)
+                                  ),
+                          IconButton(
+                              onPressed: () {
+                                if(_phonLog)setState(() {
+                                  _phonLog = !_phonLog;
+                                });
+                              },
+                              icon: Icon(Icons.email, color: (_phonLog) ?  desableColor : enableColor,)
+                          )
+                        ],
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 4),
                         child: TextFormField(
-                          controller: emailController,
+                          controller: emailOrPhoneController,
                           keyboardType: TextInputType.emailAddress,
                           validator: (value1) {
                             if (value1 == null || value1.isEmpty) {
                               //  Проверяем, не пусто ли это поле
                               return S.of(context).log_empty;
                             }
-                            if (!RegExp(// используя регулярное выражение
-                                    r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-                                .hasMatch(value1)) {
-                              return S.of(context).log_email_incorrect;
+                            if(_phonLog){
+                              if (!RegExp(// используя регулярное выражение
+                                  r'^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$')
+                                  .hasMatch(value1)) {
+                                return S.of(context).log_email_incorrect;
+                              }
+                            }else{
+                              if (!RegExp(// используя регулярное выражение
+                                  r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+                                  .hasMatch(value1)) {
+                                return S.of(context).log_email_incorrect;
+                              }
                             }
+
                             return null;
                           },
                         ),
@@ -92,8 +133,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 r'[0-9a-zA-Z!@#$%^&*]{6,}').hasMatch(value2)) {
                               return S.of(context).log_password_incorrect;
                             }
-                            if(_regOrLog){
-                              if (passwordController1.text != passwordController2.text) {
+                            if (_regOrLog) {
+                              if (passwordController1.text !=
+                                  passwordController2.text) {
                                 return S.of(context).log_password_incorrect_one;
                               }
                             }
@@ -137,12 +179,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                 return S.of(context).log_empty;
                               }
                               if (!RegExp(// используя регулярное выражение
-                                  r'[0-9a-zA-Z!@#$%^&*]{6,}').hasMatch(value3)) {
+                                      r'[0-9a-zA-Z!@#$%^&*]{6,}')
+                                  .hasMatch(value3)) {
                                 return S.of(context).log_password_incorrect;
                               }
-                              if(_regOrLog){
-                                if (passwordController1.text != passwordController2.text) {
-                                  return S.of(context).log_password_incorrect_one;
+                              if (_regOrLog) {
+                                if (passwordController1.text !=
+                                    passwordController2.text) {
+                                  return S
+                                      .of(context)
+                                      .log_password_incorrect_one;
                                 }
                               }
                               return null;
@@ -164,22 +210,48 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
-                  BlocBuilder<AuthBloc, AuthState>(
+                  BlocConsumer<AuthBloc, AuthState>(
+                      listener:(context, state){
+                        if(state.error != ''){
+                        print(state.error);
+                        }else{
+                          if(state.user !=null){
+                            Navigator.of(context).popAndPushNamed(Screens.home);
+                          }
+
+                        }
+                      },
                     builder: (context, state) {
                       return ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState?.validate() != null) {
-                              (_regOrLog)
-                                  ? context.read<AuthBloc>().add(AuthRegistrationEmailEvent(
-                                  email: emailController.text, password: passwordController1.text)
-                                     )
-                                  : context.read<AuthBloc>().add( AuthSingInEmailEvent(
-                                  email: emailController.text, password: passwordController1.text)
-                                      );
+                              if(_phonLog){
+                                if(_regOrLog){
+                                  context.read<AuthBloc>().add(
+                                      AuthRegistrationPhoneEvent(
+                                          phoneNumber: emailOrPhoneController.text,
+                                          password: passwordController1.text));
+                                }
+                              }else{
+                                if(_regOrLog){
+                                  context.read<AuthBloc>().add(
+                                      AuthRegistrationEmailEvent(
+                                          email: emailOrPhoneController.text,
+                                          password: passwordController1.text));
+                                }else{
+                                  context.read<AuthBloc>().add(
+                                      AuthSingInEmailEvent(
+                                          email: emailOrPhoneController.text,
+                                          password: passwordController1.text));
+                                }
+                              }
+
                             }
                           },
                           child: Text(
-                            (_regOrLog) ? S.of(context).log_Registration : S.of(context).log_Login,
+                            (_regOrLog)
+                                ? S.of(context).log_Registration
+                                : S.of(context).log_Login,
                             textAlign: TextAlign.justify,
                           ));
                     },
@@ -191,7 +263,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         });
                       },
                       child: Text(
-                        (_regOrLog) ? S.of(context).log_Login : S.of(context).log_Registration,
+                        (_regOrLog)
+                            ? S.of(context).log_Login
+                            : S.of(context).log_Registration,
                         textAlign: TextAlign.center,
                       )),
                 ],

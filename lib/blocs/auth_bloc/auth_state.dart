@@ -20,3 +20,9 @@ class AuthState {
     );
   }
 }
+class AuthInit extends AuthState{
+  const AuthInit({
+    error = '',
+    user = null,
+  });
+}

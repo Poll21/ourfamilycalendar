@@ -13,6 +13,7 @@ final kDarkTheme = ThemeData().copyWith(
             borderRadius: BorderRadius.all(Radius.circular(30)),
           ))),
   textSelectionTheme: TextSelectionThemeData(
+
       cursorColor: Colors.black,
       selectionColor: Colors.black,
       selectionHandleColor: Colors.black),
@@ -20,31 +21,31 @@ final kDarkTheme = ThemeData().copyWith(
     enabledBorder: OutlineInputBorder(
       gapPadding: 50,
       borderRadius: BorderRadius.all(Radius.circular(8)),
-      borderSide: BorderSide(width: 3, color: Colors.black),
+      borderSide: BorderSide(width: 1, color: Colors.black26),
     ),
     disabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(8)),
       borderSide: BorderSide(width: 2, color: Colors.black26),
     ),
-    errorBorder:  OutlineInputBorder(
-  gapPadding:50,
-  borderRadius: BorderRadius.all(Radius.circular(8)),
-  borderSide: BorderSide(width: 2, color: Colors.red),
-),
+    errorBorder: OutlineInputBorder(
+      gapPadding: 50,
+      borderRadius: BorderRadius.all(Radius.circular(8)),
+      borderSide: BorderSide(width: 2, color: Colors.red),
+    ),
     focusedBorder: OutlineInputBorder(
-  borderRadius: BorderRadius.all(Radius.circular(8)),
-  borderSide: BorderSide(width: 2, color: Colors.black),
-
-),
+      borderRadius: BorderRadius.all(Radius.circular(8)),
+      borderSide: BorderSide(width: 2, color: Colors.black),
+    ),
     focusedErrorBorder: OutlineInputBorder(
-  gapPadding:50,
-  borderRadius: BorderRadius.all(Radius.circular(8)),
-  borderSide: BorderSide(width: 3, color: Colors.redAccent),
-),
+      gapPadding: 50,
+      borderRadius: BorderRadius.all(Radius.circular(8)),
+      borderSide: BorderSide(width: 3, color: Colors.redAccent),
+    ),
     border: OutlineInputBorder(),
   ),
+  primaryColor: Color(0xDAE0E2E7),
 );
 
 final kLightTheme = ThemeData().copyWith();
-final kBlooTheme = ThemeData().copyWith();
+final kBlueTheme = ThemeData().copyWith();
 final kPinkTheme = ThemeData().copyWith();

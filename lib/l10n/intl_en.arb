@@ -1,14 +1,23 @@
 {
   "logScrenn": "Страница авторизации регистрации",
-  "log_title": "My Family Calendar",
-  "log_Registration" : "Registration",
-  "log_Authorization" : "Авторизация",
-  "log_Email" : "Email",
-  "log_Password1" : "Password",
-  "log_Password2" : "Confirm password",
-  "log_empty" : "Это поле обязательно для заполнения.",
-  "log_email_incorrect" : "Incorrect email entered. Please check the entered data!",
-  "log_password_incorrect" : "The password must contain a number, lowercase and uppercase Latin letters",
-  "log_password_incorrect_one" : "Password does not match!",
-  "log_Login": "Login"
+    "log_reg_title": "Welcome to our family!!!",
+    "reg_email_or_phone": "Register using your phone number or Email:",
+    "log_email_or_phone": "Authorize by phone number or Email:",
+    "log_title": "My Family Calendar",
+    "log_Registration" : "Registration",
+    "log_Authorization" : "Авторизация",
+    "log_Email" : "Email",
+    "log_Phone" : "Phone number",
+    "log_Password1" : "Password",
+    "log_Password2" : "Confirm password",
+    "log_empty" : "Это поле обязательно для заполнения.",
+    "log_email_incorrect" : "Incorrect email entered. Please check the entered data!",
+    "log_password_incorrect" : "The password must contain a number, lowercase and uppercase Latin letters",
+    "log_password_incorrect_one" : "Password does not match!",
+    "log_Login": "Login",
+
+  "profileScreen": "Страница авторизации регистрации",
+      "prof_sav": "Save changes",
+      "prof_name": "Username"
+
 }
