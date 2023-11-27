@@ -39,17 +39,17 @@ class _LoginScreenState extends State<LoginScreen> {
             ],
           ),
         ),
-        body: SingleChildScrollView(
-          child: Form(
-            key: _formKey,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+        body: Center(
+          child: Container(
+            constraints: BoxConstraints(maxWidth: 400),
+            child: SingleChildScrollView(
+              child: Form(
+                key: _formKey,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(S.of(context).log_reg_title),
                       Text((_regOrLog)
@@ -114,9 +114,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 4),
-                        child: Text(S.of(context).log_Password1),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 4),
+                            child: Text(S.of(context).log_Password1),
+                          ),
+                        ],
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 4),
@@ -155,120 +160,120 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
-                      )
-                    ],
-                  ),
-                  Visibility(
-                    visible: (_regOrLog),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 4),
-                          child: Text(S.of(context).log_Password2),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 4),
-                          child: TextFormField(
-                            controller: passwordController2,
-                            keyboardType: TextInputType.emailAddress,
-                            obscureText: _obscureText2,
-                            validator: (value3) {
-                              if (value3 == null || value3.isEmpty) {
-                                //  Проверяем, не пусто ли это поле
-                                return S.of(context).log_empty;
-                              }
-                              if (!RegExp(// используя регулярное выражение
-                                      r'[0-9a-zA-Z!@#$%^&*]{6,}')
-                                  .hasMatch(value3)) {
-                                return S.of(context).log_password_incorrect;
-                              }
-                              if (_regOrLog) {
-                                if (passwordController1.text !=
-                                    passwordController2.text) {
-                                  return S
-                                      .of(context)
-                                      .log_password_incorrect_one;
-                                }
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                              suffixIcon: IconButton(
-                                icon: Icon((_obscureText2)
-                                    ? Icons.visibility_off_outlined
-                                    : Icons.visibility_outlined),
-                                onPressed: () {
-                                  setState(() {
-                                    _obscureText2 = !_obscureText2;
-                                  });
+                      ),
+                      Visibility(
+                        visible: (_regOrLog),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 4),
+                              child: Text(S.of(context).log_Password2),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 4),
+                              child: TextFormField(
+                                controller: passwordController2,
+                                keyboardType: TextInputType.emailAddress,
+                                obscureText: _obscureText2,
+                                validator: (value3) {
+                                  if (value3 == null || value3.isEmpty) {
+                                    //  Проверяем, не пусто ли это поле
+                                    return S.of(context).log_empty;
+                                  }
+                                  if (!RegExp(// используя регулярное выражение
+                                          r'[0-9a-zA-Z!@#$%^&*]{6,}')
+                                      .hasMatch(value3)) {
+                                    return S.of(context).log_password_incorrect;
+                                  }
+                                  if (_regOrLog) {
+                                    if (passwordController1.text !=
+                                        passwordController2.text) {
+                                      return S
+                                          .of(context)
+                                          .log_password_incorrect_one;
+                                    }
+                                  }
+                                  return null;
                                 },
+                                decoration: InputDecoration(
+                                  suffixIcon: IconButton(
+                                    icon: Icon((_obscureText2)
+                                        ? Icons.visibility_off_outlined
+                                        : Icons.visibility_outlined),
+                                    onPressed: () {
+                                      setState(() {
+                                        _obscureText2 = !_obscureText2;
+                                      });
+                                    },
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                  BlocConsumer<AuthBloc, AuthState>(
-                      listener:(context, state){
-                        if(state.error != ''){
-                        print(state.error);
-                        }else{
-                          if(state.user !=null){
-                            Navigator.of(context).popAndPushNamed(Screens.home);
-                          }
-
-                        }
-                      },
-                    builder: (context, state) {
-                      return ElevatedButton(
-                          onPressed: () {
-                            if (_formKey.currentState?.validate() != null) {
-                              if(_phonLog){
-                                if(_regOrLog){
-                                  context.read<AuthBloc>().add(
-                                      AuthRegistrationPhoneEvent(
-                                          phoneNumber: emailOrPhoneController.text,
-                                          password: passwordController1.text));
-                                }
-                              }else{
-                                if(_regOrLog){
-                                  context.read<AuthBloc>().add(
-                                      AuthRegistrationEmailEvent(
-                                          email: emailOrPhoneController.text,
-                                          password: passwordController1.text));
-                                }else{
-                                  context.read<AuthBloc>().add(
-                                      AuthSingInEmailEvent(
-                                          email: emailOrPhoneController.text,
-                                          password: passwordController1.text));
-                                }
+                      ),
+                      BlocConsumer<AuthBloc, AuthState>(
+                          listener:(context, state){
+                            if(state.error != ''){
+                            print(state.error);
+                            }else{
+                              if(state.user !=null){
+                                Navigator.of(context).popAndPushNamed(Screens.home);
                               }
 
                             }
                           },
+                        builder: (context, state) {
+                          return ElevatedButton(
+                              onPressed: () {
+                                if (_formKey.currentState?.validate() != null) {
+                                  if(_phonLog){
+                                    if(_regOrLog){
+                                      context.read<AuthBloc>().add(
+                                          AuthRegistrationPhoneEvent(
+                                              phoneNumber: emailOrPhoneController.text,
+                                              password: passwordController1.text));
+                                    }
+                                  }else{
+                                    if(_regOrLog){
+                                      context.read<AuthBloc>().add(
+                                          AuthRegistrationEmailEvent(
+                                              email: emailOrPhoneController.text,
+                                              password: passwordController1.text));
+                                    }else{
+                                      context.read<AuthBloc>().add(
+                                          AuthSingInEmailEvent(
+                                              email: emailOrPhoneController.text,
+                                              password: passwordController1.text));
+                                    }
+                                  }
+
+                                }
+                              },
+                              child: Text(
+                                (_regOrLog)
+                                    ? S.of(context).log_Registration
+                                    : S.of(context).log_Login,
+                                textAlign: TextAlign.justify,
+                              ));
+                        },
+                      ),
+                      TextButton(
+                          onPressed: () {
+                            setState(() {
+                              _regOrLog = !_regOrLog;
+                            });
+                          },
                           child: Text(
                             (_regOrLog)
-                                ? S.of(context).log_Registration
-                                : S.of(context).log_Login,
-                            textAlign: TextAlign.justify,
-                          ));
-                    },
+                                ? S.of(context).log_Login
+                                : S.of(context).log_Registration,
+                            textAlign: TextAlign.center,
+                          )),
+                    ],
                   ),
-                  TextButton(
-                      onPressed: () {
-                        setState(() {
-                          _regOrLog = !_regOrLog;
-                        });
-                      },
-                      child: Text(
-                        (_regOrLog)
-                            ? S.of(context).log_Login
-                            : S.of(context).log_Registration,
-                        textAlign: TextAlign.center,
-                      )),
-                ],
+                ),
               ),
             ),
           ),

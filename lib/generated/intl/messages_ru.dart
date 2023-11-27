@@ -22,6 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Language": MessageLookupByLibrary.simpleMessage("Язык"),
+        "Language_E": MessageLookupByLibrary.simpleMessage("Английский"),
+        "Language_R": MessageLookupByLibrary.simpleMessage("Русский"),
         "logScrenn": MessageLookupByLibrary.simpleMessage(
             "Страница авторизации регистрации"),
         "log_Authorization":
@@ -50,8 +53,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Мой семейный календарь"),
         "prof_name": MessageLookupByLibrary.simpleMessage("Имя пользователя"),
         "prof_sav": MessageLookupByLibrary.simpleMessage("Сохранить изменения"),
-        "profileScreen": MessageLookupByLibrary.simpleMessage(
-            "Страница авторизации регистрации"),
         "reg_email_or_phone": MessageLookupByLibrary.simpleMessage(
             "Пройдите регистрацию по номеру телефона иди Email:")
       };

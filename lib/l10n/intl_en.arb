@@ -18,6 +18,8 @@
 
   "profileScreen": "Страница авторизации регистрации",
       "prof_sav": "Save changes",
-      "prof_name": "Username"
-
+      "prof_name": "User Name",
+      "Language": "Language",
+      "Language_R": "Russian",
+      "Language_E": "English"
 }

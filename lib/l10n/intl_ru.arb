@@ -16,7 +16,10 @@
     "log_password_incorrect_one" : "Пароль не совпадает!",
     "log_Login": "Вход",
 
-  "profileScreen": "Страница авторизации регистрации",
+  "settingsScreen": "Страница авторизации регистрации",
       "prof_sav": "Сохранить изменения",
-      "prof_name": "Имя пользователя"
+      "prof_name": "Имя пользователя",
+      "Language": "Язык",
+      "Language_R": "Русский",
+      "Language_E": "Английский"
 }

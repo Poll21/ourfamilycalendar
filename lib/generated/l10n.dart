@@ -230,11 +230,41 @@ class S {
     );
   }
 
-  /// `Username`
+  /// `User Name`
   String get prof_name {
     return Intl.message(
-      'Username',
+      'User Name',
       name: 'prof_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get Language {
+    return Intl.message(
+      'Language',
+      name: 'Language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Russian`
+  String get Language_R {
+    return Intl.message(
+      'Russian',
+      name: 'Language_R',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get Language_E {
+    return Intl.message(
+      'English',
+      name: 'Language_E',
       desc: '',
       args: [],
     );
