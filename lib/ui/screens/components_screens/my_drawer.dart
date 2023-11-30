@@ -77,7 +77,7 @@ class MyDrawer extends StatelessWidget {
             onPressed: () {
               context.read<AuthBloc>().add(AuthLogOutEvent());
               context.read<SettingAppBloc>().add(SettingAppSetEvent(
-                  isAuthorized: false, locale: null, appTheme: null));
+                  isAuthorized: false, locale: null, appTheme: null, socialRole: null));
               Navigator.of(context).popAndPushNamed(Screens.main);
             },
             icon: const Icon(Icons.logout),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:our_family_calendar/blocs/setting_app_bloc/setting_app_bloc.dart';
+import 'package:our_family_calendar/generated/l10n.dart';
 
 class UserTheme extends StatelessWidget {
   const UserTheme({super.key});
@@ -17,7 +18,7 @@ class UserTheme extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(child: Text("Тема")),
+              Expanded(child: Text(S.of(context).theme)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -27,7 +28,8 @@ class UserTheme extends StatelessWidget {
                             SettingAppSetEvent(
                                 isAuthorized: null,
                                 locale: null,
-                                appTheme: "kLightTheme"));
+                                appTheme: "kLightTheme",
+                                socialRole: null));
                       },
                       icon: Icon(
                         (state.appTheme == "kLightTheme")
@@ -41,7 +43,7 @@ class UserTheme extends StatelessWidget {
                             SettingAppSetEvent(
                                 isAuthorized: null,
                                 locale: null,
-                                appTheme: "kDarkTheme"));
+                                appTheme: "kDarkTheme", socialRole: null));
                       },
                       icon: Icon(
                         (state.appTheme == "kDarkTheme")
@@ -55,7 +57,7 @@ class UserTheme extends StatelessWidget {
                             SettingAppSetEvent(
                                 isAuthorized: null,
                                 locale: null,
-                                appTheme: "kPinkTheme"));
+                                appTheme: "kPinkTheme", socialRole: null));
                       },
                       icon: Icon(
                         (state.appTheme == "kPinkTheme")
@@ -69,7 +71,7 @@ class UserTheme extends StatelessWidget {
                             SettingAppSetEvent(
                                 isAuthorized: null,
                                 locale: null,
-                                appTheme: "kBlueTheme"));
+                                appTheme: "kBlueTheme", socialRole: null));
                       },
                       icon: Icon(
                         (state.appTheme == "kBlueTheme")

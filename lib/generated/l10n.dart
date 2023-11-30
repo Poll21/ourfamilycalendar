@@ -210,11 +210,11 @@ class S {
     );
   }
 
-  /// `Страница авторизации регистрации`
-  String get profileScreen {
+  /// `Страница настроек`
+  String get SettingsScreen {
     return Intl.message(
-      'Страница авторизации регистрации',
-      name: 'profileScreen',
+      'Страница настроек',
+      name: 'SettingsScreen',
       desc: '',
       args: [],
     );
@@ -235,6 +235,16 @@ class S {
     return Intl.message(
       'User Name',
       name: 'prof_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Theme`
+  String get theme {
+    return Intl.message(
+      'Theme',
+      name: 'theme',
       desc: '',
       args: [],
     );
@@ -265,6 +275,76 @@ class S {
     return Intl.message(
       'English',
       name: 'Language_E',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Social role`
+  String get social_role {
+    return Intl.message(
+      'Social role',
+      name: 'social_role',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Working`
+  String get working {
+    return Intl.message(
+      'Working',
+      name: 'working',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Student`
+  String get student {
+    return Intl.message(
+      'Student',
+      name: 'student',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Schoolboy`
+  String get schoolboy {
+    return Intl.message(
+      'Schoolboy',
+      name: 'schoolboy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Self-employed`
+  String get self_employed {
+    return Intl.message(
+      'Self-employed',
+      name: 'self_employed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Household`
+  String get household {
+    return Intl.message(
+      'Household',
+      name: 'household',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Not determined`
+  String get not_determined {
+    return Intl.message(
+      'Not determined',
+      name: 'not_determined',
       desc: '',
       args: [],
     );

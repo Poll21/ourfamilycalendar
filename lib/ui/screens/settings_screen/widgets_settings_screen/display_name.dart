@@ -34,12 +34,12 @@ class _DisplayNameState extends State<DisplayName> {
                 children: [
                   Expanded(
                     child: TextFormField(
-                      style: TextStyle(color: Colors.black87),
+                      style: const TextStyle(color: Colors.black87),
                       textAlignVertical: TextAlignVertical.bottom,
                       controller: _displayNameController,
                       keyboardType: TextInputType.name,
                       enabled: _enabledName,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         //contentPadding: EdgeInsets.only( top: 0),
                         enabledBorder: UnderlineInputBorder(
                           borderSide:

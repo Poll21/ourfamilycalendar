@@ -9,6 +9,7 @@ import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_
 import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/user_email.dart';
 
 import 'widgets_settings_screen/display_name.dart';
+import 'widgets_settings_screen/social_role.dart';
 import 'widgets_settings_screen/user_local.dart';
 import 'widgets_settings_screen/user_theme.dart';
 
@@ -18,8 +19,6 @@ class SettingsScreen extends StatefulWidget {
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
-
-bool _enabledName = false;
 
 class _SettingsScreenState extends State<SettingsScreen> {
   @override
@@ -45,7 +44,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           body: Form(
             key: _formKey,
             child: Container(
-              constraints: BoxConstraints(maxWidth: 400),
+              constraints: const BoxConstraints(maxWidth: 400),
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -63,65 +62,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ),
                      const UserEmail(),
                       const UserTheme(),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   children: [
-                      //     Text("Язык"),
-                      //     InkWell(
-                      //         onTap: () {
-                      //           showDialog<String>(
-                      //             context: context,
-                      //             builder: (BuildContext context) =>
-                      //                 AlertDialog(
-                      //               contentPadding: EdgeInsets.all(0),
-                      //               content: Container(
-                      //                 height: 60,
-                      //                 width: 200,
-                      //                 child: Column(
-                      //                   mainAxisAlignment:
-                      //                       MainAxisAlignment.start,
-                      //                   crossAxisAlignment:
-                      //                       CrossAxisAlignment.center,
-                      //                   children: [
-                      //                     InkWell(
-                      //                       onTap: () {
-                      //                         context
-                      //                             .read<SettingAppBloc>()
-                      //                             .add(SettingAppSetEvent(
-                      //                                 isAuthorized: null,
-                      //                                 locale: 'ru',
-                      //                                 appTheme: null));
-                      //                         Navigator.of(context).pop();
-                      //                       },
-                      //                       child: Container(
-                      //                           color: Colors.cyan,
-                      //                           child: Text(
-                      //
-                      //                             'Русский',
-                      //                           )),
-                      //                     ),
-                      //                     InkWell(
-                      //                       onTap: () {
-                      //                         context
-                      //                             .read<SettingAppBloc>()
-                      //                             .add(SettingAppSetEvent(
-                      //                                 isAuthorized: null,
-                      //                                 locale: 'en',
-                      //                                 appTheme: null));
-                      //                         Navigator.of(context).pop();
-                      //                       },
-                      //                       child: const Text('Английский'),
-                      //                     ),
-                      //                   ],
-                      //                 ),
-                      //               ),
-                      //             ),
-                      //           );
-                      //         },
-                      //         child: Text("Русский")),
-                      //   ],
-                      // ),
-                      UserLocale(),
+                      const UserLocale(),
+                      const SocialRole(),
                       ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState?.validate() != null) {

@@ -16,10 +16,18 @@
     "log_password_incorrect_one" : "Password does not match!",
     "log_Login": "Login",
 
-  "profileScreen": "Страница авторизации регистрации",
+  "SettingsScreen": "Страница настроек",
       "prof_sav": "Save changes",
       "prof_name": "User Name",
+      "theme": "Theme",
       "Language": "Language",
-      "Language_R": "Russian",
-      "Language_E": "English"
+        "Language_R": "Russian",
+        "Language_E": "English",
+      "social_role": "Social role",
+        "working":"Working",
+        "student":"Student",
+        "schoolboy": "Schoolboy",
+        "self_employed":"Self-employed",
+        "household":"Household",
+        "not_determined": "Not determined"
 }

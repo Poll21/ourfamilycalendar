@@ -22,106 +22,99 @@ class UserLocale extends StatelessWidget {
                 onTap: () {
                   showDialog<String>(
                     context: context,
-                    builder: (BuildContext context) =>
-                        AlertDialog(
-                          backgroundColor: Colors.white10,
-                          insetPadding:
-                          const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                          actionsPadding:
-                          const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                          actions: [
-                            ChangeLanguageWidget(locale: state.locale)
-                          ],
-                        ),
+                    builder: (BuildContext context) => AlertDialog(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24)),
+                      backgroundColor: const Color(0x00ffffff),
+                      insetPadding: const EdgeInsets.symmetric(
+                          horizontal: 0, vertical: 0),
+                      actionsPadding: const EdgeInsets.symmetric(
+                          horizontal: 0, vertical: 0),
+                      actions: const [ChangeLanguageWidget()],
+                    ),
                   );
                 },
-                child: Text(
-                    (state.locale =='ru')
-                        ? S.of(context).Language_R
-                        :S.of(context).Language_E
-                )),
+                child: Text((state.locale == 'ru')
+                    ? S.of(context).Language_R
+                    : S.of(context).Language_E)),
           ],
         );
       },
     );
   }
 }
-class ChangeLanguageWidget extends StatefulWidget {
-  String locale;
-  ChangeLanguageWidget({super.key, required this.locale});
 
-  @override
-  State<ChangeLanguageWidget> createState() => _ChangeLanguageWidgetState();
-}
-
-
-class _ChangeLanguageWidgetState extends State<ChangeLanguageWidget> {
+class ChangeLanguageWidget extends StatelessWidget {
+  const ChangeLanguageWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          InkWell(
-            onTap: () {
-              widget.locale = 'ru';
-              setState(() {
-              });
-            },
-            child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                shape: BoxShape.rectangle,
-                color: Colors.white,
-                borderRadius:
-                BorderRadius.vertical(top: Radius.circular(10)),
+    return BlocBuilder<SettingAppBloc, SettingAppState>(
+      builder: (context, state) {
+        return Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              InkWell(
+                onTap: () {
+                  context.read<SettingAppBloc>().add(SettingAppSetEvent(
+                      locale: 'ru',
+                      isAuthorized: null,
+                      appTheme: null,
+                      socialRole: null));
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color:
+                        (state.locale == 'ru') ? Colors.white : Colors.black38,
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(24)),
+                  ),
+                  child: Center(
+                    child: Text(S.of(context).Language_R,
+                        style: (state.locale == 'ru')
+                            ? TextStyle(color: Colors.black)
+                            : TextStyle(color: Colors.white)),
+                  ),
+                ),
               ),
-              child: Center(
-                child: Text(S.of(context).Language_R,
-                    style: (widget.locale == 'ru')
-                        ? TextStyle(color: Colors.white)
-                        : TextStyle(color: Colors.black12)),
+              Container(
+                width: double.infinity,
+                height: 2,
+                color: const Color(0x00ffffff),
               ),
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            height: 2,
-            color: Colors.cyan,
-          ),
-          InkWell(
-            onTap: () {
-              widget.locale = 'en';
-              setState(() {
-              });
-            },
-            child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(
-                    bottom: Radius.circular(10)),
+              InkWell(
+                onTap: () {
+                  context.read<SettingAppBloc>().add(SettingAppSetEvent(
+                      locale: 'en',
+                      isAuthorized: null,
+                      appTheme: null,
+                      socialRole: null));
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color:
+                        (state.locale == 'en') ? Colors.white : Colors.black38,
+                    borderRadius:
+                        BorderRadius.vertical(bottom: Radius.circular(24)),
+                  ),
+                  child: Center(
+                    child: Text(S.of(context).Language_E,
+                        style: (state.locale == 'en')
+                            ? TextStyle(color: Colors.black)
+                            : TextStyle(color: Colors.white)),
+                  ),
+                ),
               ),
-              child: Center(
-                child: Text(S.of(context).Language_E,
-                    style: (widget.locale == 'ru')
-                        ? TextStyle(color: Colors.white)
-                        : TextStyle(color: Colors.black12)),
-              ),
-            ),
-          ),
-          const SizedBox(height: 16),
-          ColorsButton(
-              text: S.of(context).prof_sav,
-              onPressed: () async {
-                context.read<SettingAppBloc>().add(SettingAppSetEvent(locale: widget.locale, isAuthorized: null, appTheme: null));
-                Navigator.pop(context);
-
-              }),
-        ]);
+            ]);
+      },
+    );
   }
 }

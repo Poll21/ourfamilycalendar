@@ -19,7 +19,15 @@
   "settingsScreen": "Страница авторизации регистрации",
       "prof_sav": "Сохранить изменения",
       "prof_name": "Имя пользователя",
+      "theme": "Тема",
       "Language": "Язык",
-      "Language_R": "Русский",
-      "Language_E": "Английский"
+        "Language_R": "Русский",
+        "Language_E": "Английский",
+      "social_role": "Cоциальная роль",
+        "working":"Работаю",
+        "student":"Студент",
+        "schoolboy": "Школьник",
+        "self_employed":"Самозанятый",
+        "household":"Домашнее хозяйство",
+        "not_determined": "Не определена"
 }

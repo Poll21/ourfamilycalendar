@@ -25,6 +25,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "Language": MessageLookupByLibrary.simpleMessage("Language"),
         "Language_E": MessageLookupByLibrary.simpleMessage("English"),
         "Language_R": MessageLookupByLibrary.simpleMessage("Russian"),
+        "SettingsScreen":
+            MessageLookupByLibrary.simpleMessage("Страница настроек"),
+        "household": MessageLookupByLibrary.simpleMessage("Household"),
         "logScrenn": MessageLookupByLibrary.simpleMessage(
             "Страница авторизации регистрации"),
         "log_Authorization":
@@ -50,11 +53,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "log_reg_title":
             MessageLookupByLibrary.simpleMessage("Welcome to our family!!!"),
         "log_title": MessageLookupByLibrary.simpleMessage("My Family Calendar"),
+        "not_determined":
+            MessageLookupByLibrary.simpleMessage("Not determined"),
         "prof_name": MessageLookupByLibrary.simpleMessage("User Name"),
         "prof_sav": MessageLookupByLibrary.simpleMessage("Save changes"),
-        "profileScreen": MessageLookupByLibrary.simpleMessage(
-            "Страница авторизации регистрации"),
         "reg_email_or_phone": MessageLookupByLibrary.simpleMessage(
-            "Register using your phone number or Email:")
+            "Register using your phone number or Email:"),
+        "schoolboy": MessageLookupByLibrary.simpleMessage("Schoolboy"),
+        "self_employed": MessageLookupByLibrary.simpleMessage("Self-employed"),
+        "social_role": MessageLookupByLibrary.simpleMessage("Social role"),
+        "student": MessageLookupByLibrary.simpleMessage("Student"),
+        "theme": MessageLookupByLibrary.simpleMessage("Theme"),
+        "working": MessageLookupByLibrary.simpleMessage("Working")
       };
 }

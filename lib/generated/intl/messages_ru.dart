@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Language": MessageLookupByLibrary.simpleMessage("Язык"),
         "Language_E": MessageLookupByLibrary.simpleMessage("Английский"),
         "Language_R": MessageLookupByLibrary.simpleMessage("Русский"),
+        "household": MessageLookupByLibrary.simpleMessage("Домашнее хозяйство"),
         "logScrenn": MessageLookupByLibrary.simpleMessage(
             "Страница авторизации регистрации"),
         "log_Authorization":
@@ -51,9 +52,16 @@ class MessageLookup extends MessageLookupByLibrary {
             "Добро пожаловать в нашу семью!!!"),
         "log_title":
             MessageLookupByLibrary.simpleMessage("Мой семейный календарь"),
+        "not_determined": MessageLookupByLibrary.simpleMessage("Не определена"),
         "prof_name": MessageLookupByLibrary.simpleMessage("Имя пользователя"),
         "prof_sav": MessageLookupByLibrary.simpleMessage("Сохранить изменения"),
         "reg_email_or_phone": MessageLookupByLibrary.simpleMessage(
-            "Пройдите регистрацию по номеру телефона иди Email:")
+            "Пройдите регистрацию по номеру телефона иди Email:"),
+        "schoolboy": MessageLookupByLibrary.simpleMessage("Школьник"),
+        "self_employed": MessageLookupByLibrary.simpleMessage("Самозанятый"),
+        "social_role": MessageLookupByLibrary.simpleMessage("Cоциальная роль"),
+        "student": MessageLookupByLibrary.simpleMessage("Студент"),
+        "theme": MessageLookupByLibrary.simpleMessage("Тема"),
+        "working": MessageLookupByLibrary.simpleMessage("Работаю")
       };
 }

@@ -10,7 +10,9 @@ class SettingAppGetEvent extends SettingAppEvent{
 class SettingAppSetEvent extends SettingAppEvent{
   final String? locale;
   final String? appTheme;
+  final String? socialRole;
   final bool? isAuthorized;
 
-  SettingAppSetEvent({required this.isAuthorized, required this.locale, required this.appTheme});
+
+  SettingAppSetEvent({required this.isAuthorized, required this.locale, required this.socialRole, required this.appTheme});
 }

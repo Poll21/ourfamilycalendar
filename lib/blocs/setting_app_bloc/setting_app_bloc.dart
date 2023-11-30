@@ -8,7 +8,6 @@ part 'setting_app_event.dart';
 
 part 'setting_app_state.dart';
 
-
 class SettingAppBloc extends Bloc<SettingAppEvent, SettingAppState> {
   SettingAppBloc() : super(const SettingAppInit()) {
     on<SettingAppGetEvent>((event, emit) async {
@@ -20,22 +19,25 @@ class SettingAppBloc extends Bloc<SettingAppEvent, SettingAppState> {
     }, transformer: sequential());
   }
 
-  _onSettingAppGetEvent(SettingAppGetEvent event,
-      Emitter<SettingAppState> emit) async {
+  _onSettingAppGetEvent(
+      SettingAppGetEvent event, Emitter<SettingAppState> emit) async {
     final sharedPrefs = await SharedPreferences.getInstance();
     final _local = sharedPrefs.getString('locale');
     final _appTheme = sharedPrefs.getString('appTheme');
+    final _socialRole = sharedPrefs.getString('socialRole') ?? '';
     final _email = await secureStorage.read(key: 'email') ?? '';
     final _phone = await secureStorage.read(key: 'phone') ?? '';
     final _isAuthorized = (_email != '' || _phone != '');
-    emit(state.copyWith(locale: _local,
+    emit(state.copyWith(
+        locale: _local,
         appTheme: _appTheme,
         isAuthorized: _isAuthorized,
+        socialRole: _socialRole,
         error: ''));
   }
 
-  _onSettingAppSetEvent(SettingAppSetEvent event,
-      Emitter<SettingAppState> emit) async {
+  _onSettingAppSetEvent(
+      SettingAppSetEvent event, Emitter<SettingAppState> emit) async {
     if (event.locale != null) {
       final sharedPrefs = await SharedPreferences.getInstance();
       sharedPrefs.setString('locale', event.locale!);
@@ -44,7 +46,17 @@ class SettingAppBloc extends Bloc<SettingAppEvent, SettingAppState> {
       final sharedPrefs = await SharedPreferences.getInstance();
       sharedPrefs.setString('appTheme', event.appTheme!);
     }
+    if (event.socialRole != null) {
+      final sharedPrefs = await SharedPreferences.getInstance();
+      sharedPrefs.setString('socialRole', event.socialRole!);
+    }
 
-    emit(state.copyWith(locale:event.locale, appTheme:event.appTheme, isAuthorized: event.isAuthorized ,error: ''));
+    emit(state.copyWith(
+      locale: event.locale,
+      appTheme: event.appTheme,
+      isAuthorized: event.isAuthorized,
+      socialRole: event.socialRole,
+      error: '',
+    ));
   }
 }
