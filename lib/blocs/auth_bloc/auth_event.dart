@@ -42,11 +42,11 @@ class AuthUpdateProfileEvent extends AuthEvent {
   final String? password;
 
   AuthUpdateProfileEvent({
-    required this.displayName,
-    required this.photoURL,
-    required this.email,
-    required this.password,
-    required this.phoneNumber,
+     this.displayName,
+     this.photoURL,
+     this.email,
+     this.password,
+     this.phoneNumber,
   });
 }
 

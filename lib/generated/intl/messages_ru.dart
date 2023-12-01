@@ -25,6 +25,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "Language": MessageLookupByLibrary.simpleMessage("Язык"),
         "Language_E": MessageLookupByLibrary.simpleMessage("Английский"),
         "Language_R": MessageLookupByLibrary.simpleMessage("Русский"),
+        "about_app": MessageLookupByLibrary.simpleMessage("About the app"),
+        "application_version":
+            MessageLookupByLibrary.simpleMessage("Application_version"),
+        "change_password":
+            MessageLookupByLibrary.simpleMessage("Change password"),
         "household": MessageLookupByLibrary.simpleMessage("Домашнее хозяйство"),
         "logScrenn": MessageLookupByLibrary.simpleMessage(
             "Страница авторизации регистрации"),

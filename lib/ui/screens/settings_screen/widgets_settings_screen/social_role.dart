@@ -13,38 +13,6 @@ class SocialRole extends StatelessWidget {
         // TODO: implement listener
       },
       builder: (context, state) {
-        final _socialRoleList = <Widget>[
-          SocialRoleButton(
-            socialRole: S.of(context).working,
-            radius: 24,
-            radiusTop: true,
-          ),
-          SocialRoleButton(
-            socialRole: S.of(context).student,
-            radius: 0,
-            radiusTop: true,
-          ),
-          SocialRoleButton(
-            socialRole: S.of(context).schoolboy,
-            radius: 0,
-            radiusTop: true,
-          ),
-          SocialRoleButton(
-            socialRole: S.of(context).self_employed,
-            radius: 0,
-            radiusTop: true,
-          ),
-          SocialRoleButton(
-            socialRole: S.of(context).household,
-            radius: 0,
-            radiusTop: true,
-          ),
-          SocialRoleButton(
-            socialRole: S.of(context).not_determined,
-            radius: 24,
-            radiusTop: false,
-          ),
-        ];
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -61,7 +29,43 @@ class SocialRole extends StatelessWidget {
                           horizontal: 0, vertical: 0),
                       actionsPadding: const EdgeInsets.symmetric(
                           horizontal: 0, vertical: 0),
-                      actions: _socialRoleList,
+                      actions: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SocialRoleButton(
+                              socialRole: S.of(context).working,
+                              radius: 24,
+                              radiusTop: true,
+                            ),
+                            SocialRoleButton(
+                              socialRole: S.of(context).student,
+                              radius: 0,
+                              radiusTop: true,
+                            ),
+                            SocialRoleButton(
+                              socialRole: S.of(context).schoolboy,
+                              radius: 0,
+                              radiusTop: true,
+                            ),
+                            SocialRoleButton(
+                              socialRole: S.of(context).self_employed,
+                              radius: 0,
+                              radiusTop: true,
+                            ),
+                            SocialRoleButton(
+                              socialRole: S.of(context).household,
+                              radius: 0,
+                              radiusTop: true,
+                            ),
+                            SocialRoleButton(
+                              socialRole: S.of(context).not_determined,
+                              radius: 24,
+                              radiusTop: false,
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   );
                 },
@@ -90,31 +94,34 @@ class SocialRoleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SettingAppBloc, SettingAppState>(
       builder: (context, state) {
-        return InkWell(
-          onTap: () {
-            context.read<SettingAppBloc>().add(SettingAppSetEvent(
-                locale: null,
-                isAuthorized: null,
-                appTheme: null,
-                socialRole: socialRole));
-            Navigator.pop(context);
-          },
-          child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 20),
-            width: double.infinity,
-            decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-                color: (state.socialRole == socialRole)
-                    ? Colors.white
-                    : Colors.black38,
-                borderRadius: (radiusTop)
-                    ? BorderRadius.vertical(top: Radius.circular(radius))
-                    : BorderRadius.vertical(bottom: Radius.circular(radius))),
-            child: Center(
-              child: Text(socialRole,
-                  style: (state.socialRole == socialRole)
-                      ? TextStyle(color: Colors.black)
-                      : TextStyle(color: Colors.white)),
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 2),
+          child: InkWell(
+            onTap: () {
+              context.read<SettingAppBloc>().add(SettingAppSetEvent(
+                  locale: null,
+                  isAuthorized: null,
+                  appTheme: null,
+                  socialRole: socialRole));
+              Navigator.pop(context);
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              constraints: BoxConstraints(maxWidth: 300),
+              decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  color: (state.socialRole == socialRole)
+                      ? Colors.white
+                      : Colors.black38,
+                  borderRadius: (radiusTop)
+                      ? BorderRadius.vertical(top: Radius.circular(radius))
+                      : BorderRadius.vertical(bottom: Radius.circular(radius))),
+              child: Center(
+                child: Text(socialRole,
+                    style: (state.socialRole == socialRole)
+                        ? TextStyle(color: Colors.black)
+                        : TextStyle(color: Colors.white)),
+              ),
             ),
           ),
         );

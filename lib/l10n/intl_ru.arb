@@ -29,5 +29,8 @@
         "schoolboy": "Школьник",
         "self_employed":"Самозанятый",
         "household":"Домашнее хозяйство",
-        "not_determined": "Не определена"
+        "not_determined": "Не определена",
+      "application_version": "Application_version",
+        "about_app": "About the app",
+        "change_password": "Change password"
 }

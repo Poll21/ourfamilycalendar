@@ -69,11 +69,17 @@ class _DisplayNameState extends State<DisplayName> {
                   ),
                   InkWell(
                     child: Icon(
-                      (_enabledName) ? Icons.edit_off : Icons.edit,
+                      (_enabledName) ? Icons.save_as : Icons.edit,
                       size: 20,
                     ),
                     onTap: () {
                       setState(() {
+                        if(_enabledName){
+                          context.read<AuthBloc>().add(
+                                          AuthUpdateProfileEvent(
+                                              displayName: _displayNameController.text,
+                                              ));
+                        }
                         _enabledName = !_enabledName;
                       });
                     },

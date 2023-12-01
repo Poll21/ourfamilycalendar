@@ -5,7 +5,7 @@ abstract class Screens {
   static const main = "/";
   static const home = "/home";
   static const settings = "/home/settings";
-  // static const registrationsScreens = "/registrationsScreens";
+  static const changePassword = "/home/settings/change_password";
   // static const loginScreen = "/loginScreen";
   // static const noUserAuthorization = "/noUserAuthorization";
   // static const restoreConfirm = "/loginScreen/restoreConfirm";
@@ -17,9 +17,9 @@ class MainNavigation {
 
   Map<String, WidgetBuilder> get routes => <String, WidgetBuilder>{
     Screens.main: (_) => _screenFactory.makeLoadingScreen(),
-    Screens.home: (_) => _screenFactory.makeHomeScreens(),
+    Screens.home: (_) => _screenFactory.makeHomeScreen(),
     Screens.settings: (_) => _screenFactory.makeSettingsScreen(),
-    // Screens.pinScreen: (_) => _screenFactory.makeSecurityPinScreen(),
+    Screens.changePassword: (_) => _screenFactory.makeChangePasswordScreen(),
     // Screens.loginScreen: (_) => _screenFactory.makeLoginScreen(),
     // Screens.restoreConfirm: (_) => _screenFactory.makeRestoreConfirm(),
   };
