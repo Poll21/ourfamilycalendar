@@ -66,15 +66,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       const SocialRole(),
                       ElevatedButton(
                           onPressed: () {
-                            if (_formKey.currentState?.validate() != null) {
-                              context.read<AuthBloc>().add(
-                                  AuthUpdateProfileEvent(
-                                      displayName: _displayNameController.text,
-                                      photoURL: '',
-                                      email: _emailController.text,
-                                      password: '',
-                                      phoneNumber: _phoneController.text));
-                            }
+                            // if (_formKey.currentState?.validate() != null) {
+                            //   context.read<AuthBloc>().add(
+                            //       AuthUpdateProfileEvent(
+                            //           displayName: _displayNameController.text,
+                            //           photoURL: '',
+                            //           email: _emailController.text,
+                            //           password: '',
+                            //           phoneNumber: _phoneController.text));
+                            // }
                           },
                           child: Text(
                             S.of(context).prof_sav,

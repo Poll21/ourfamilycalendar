@@ -269,7 +269,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             (_regOrLog)
                                 ? S.of(context).log_Login
                                 : S.of(context).log_Registration,
-                            textAlign: TextAlign.center,
+                            textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodyMedium,
                           )),
                     ],
                   ),
