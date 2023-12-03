@@ -1,31 +1,118 @@
 import 'package:flutter/material.dart';
 
 final kDarkTheme = ThemeData().copyWith(
-  appBarTheme: AppBarTheme(color: Colors.black),
-  scaffoldBackgroundColor: const Color(0xDAE0E2E7),
+  buttonTheme: ButtonThemeData(
+    buttonColor: Colors.red
+  ),
+  iconTheme: IconThemeData(color: Colors.red),
+iconButtonTheme: IconButtonThemeData(),
+  appBarTheme: const AppBarTheme(color: Colors.black),
+  scaffoldBackgroundColor: Colors.black45,
   focusColor: Colors.pink,
+  textTheme: const TextTheme(
+    headlineLarge: TextStyle(
+        fontWeight: FontWeight.w700,
+        fontSize: 18,
+        fontFamily: 'Montserrat',
+        color: Colors.white),
+    headlineMedium: TextStyle(
+        fontWeight: FontWeight.w700,
+        fontSize: 16,
+        fontFamily: 'Montserrat',
+        color: Colors.white),
+    headlineSmall: TextStyle(
+        fontWeight: FontWeight.w700,
+        fontSize: 14,
+        fontFamily: 'Montserrat',
+        color: Colors.white),
+    titleLarge: TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: 18,
+        fontFamily: 'Montserrat',
+        color: Colors.white),
+    titleMedium: TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: 16,
+        fontFamily: 'Montserrat',
+        color: Colors.white),
+    titleSmall: TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: 14,
+        fontFamily: 'Montserrat',
+        color: Colors.white),
+    bodyLarge: TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 18,
+        fontFamily: 'Montserrat',
+        color: Colors.white),
+    bodyMedium: TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 16,
+        fontFamily: 'Montserrat',
+        color: Colors.white),
+    bodySmall: TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 14,
+        fontFamily: 'Montserrat',
+        color: Colors.white),
+    displayLarge: TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 18,
+        fontFamily: 'Montserrat',
+        color: Colors.black),
+    displayMedium: TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 16,
+        fontFamily: 'Montserrat',
+        color: Colors.black),
+    displaySmall: TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 14,
+        fontFamily: 'Montserrat',
+        color: Colors.black),
+    labelLarge: TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: 18,
+        fontFamily: 'Montserrat',
+        color: Colors.black),
+    labelMedium: TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: 16,
+        fontFamily: 'Montserrat',
+        color: Colors.black),
+    labelSmall: TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: 14,
+        fontFamily: 'Montserrat',
+        color: Colors.black),
+  ),
+
+
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-          shadowColor: Color(0xFFD5D5D7FF),
-          textStyle: TextStyle(),
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.black54,
+          shadowColor: Colors.white60,
+          textStyle: const TextStyle(
+            fontSize: 16,
+            fontFamily: 'Montserrat',
+            fontWeight: FontWeight.w600,
+          ),
           shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30)),
+            borderRadius: BorderRadius.all(Radius.circular(24)),
           ))),
   textSelectionTheme: TextSelectionThemeData(
-
-      cursorColor: Colors.black,
-      selectionColor: Colors.black,
-      selectionHandleColor: Colors.black),
+      cursorColor: Colors.white,
+      selectionColor: Colors.grey,
+      selectionHandleColor: Colors.grey),
   inputDecorationTheme: const InputDecorationTheme(
     enabledBorder: OutlineInputBorder(
       gapPadding: 50,
       borderRadius: BorderRadius.all(Radius.circular(8)),
-      borderSide: BorderSide(width: 1, color: Colors.black26),
+      borderSide: BorderSide(width: 1, color: Colors.white),
     ),
     disabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(8)),
-      borderSide: BorderSide(width: 2, color: Colors.black26),
+      borderSide: BorderSide(width: 2, color: Colors.white),
     ),
     errorBorder: OutlineInputBorder(
       gapPadding: 50,
@@ -34,7 +121,7 @@ final kDarkTheme = ThemeData().copyWith(
     ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(8)),
-      borderSide: BorderSide(width: 2, color: Colors.black),
+      borderSide: BorderSide(width: 2, color: Colors.white),
     ),
     focusedErrorBorder: OutlineInputBorder(
       gapPadding: 50,
@@ -43,7 +130,7 @@ final kDarkTheme = ThemeData().copyWith(
     ),
     border: OutlineInputBorder(),
   ),
-  primaryColor: Color(0xDAE0E2E7),
+  primaryColor: Colors.white,
 );
 
 final kLightTheme = ThemeData().copyWith();

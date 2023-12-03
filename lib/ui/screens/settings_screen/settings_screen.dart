@@ -73,6 +73,7 @@ class SettingsScreen extends StatelessWidget {
                     //       textAlign: TextAlign.justify,
                     //     )),
                   ]),
+
             ),
           ),
         ));

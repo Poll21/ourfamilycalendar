@@ -49,7 +49,7 @@ class UserTheme extends StatelessWidget {
                         (state.appTheme == "kDarkTheme")
                             ?Icons.expand_circle_down_sharp
                             :Icons.circle,
-                        color: Colors.black,
+                        color: Colors.grey,
                       )),
                   IconButton(
                       onPressed: () {
