@@ -84,7 +84,7 @@ class ChangeLanguageWidget extends StatelessWidget {
               ),
               Container(
                 width: double.infinity,
-                height: 2,
+                height: 4,
                 color: const Color(0x00ffffff),
               ),
               InkWell(

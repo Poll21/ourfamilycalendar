@@ -29,5 +29,8 @@
         "schoolboy": "Schoolboy",
         "self_employed":"Self-employed",
         "household":"Household",
-        "not_determined": "Not determined"
+        "not_determined": "Not determined",
+      "application_version": "Bерсия приложения",
+        "about_app": "О приложение",
+      "change_password": "Изменить пароль"
 }

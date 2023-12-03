@@ -349,6 +349,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Bерсия приложения`
+  String get application_version {
+    return Intl.message(
+      'Bерсия приложения',
+      name: 'application_version',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `О приложение`
+  String get about_app {
+    return Intl.message(
+      'О приложение',
+      name: 'about_app',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Изменить пароль`
+  String get change_password {
+    return Intl.message(
+      'Изменить пароль',
+      name: 'change_password',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
