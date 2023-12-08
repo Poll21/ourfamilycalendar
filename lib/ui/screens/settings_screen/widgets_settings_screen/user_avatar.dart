@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:our_family_calendar/blocs/auth_bloc/auth_bloc.dart';
+import 'package:our_family_calendar/main_navigation.dart';
 
 class UserAvatar extends StatelessWidget {
   const UserAvatar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthBloc,AuthState>(
+    return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         // TODO: implement listener
       },
       builder: (context, state) {
+        final _photoURL =state.user?.photoURL ?? '';
         return Stack(
           alignment: AlignmentDirectional.bottomEnd,
           children: [
             CircleAvatar(
               radius: 50,
               backgroundImage: NetworkImage(
-                  'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+                  (_photoURL !='') ? _photoURL
+                      :'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
             ),
             CircleAvatar(
               radius: 12,
@@ -26,7 +29,7 @@ class UserAvatar extends StatelessWidget {
               child: InkWell(
                 child: Icon(Icons.add),
                 onTap: () {
-
+                  Navigator.of(context).pushNamed(Screens.getImage);
                 },
               ),
             )

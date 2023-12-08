@@ -54,7 +54,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   User? _user;
-
+  String _error = '';
 
   _onAuthSingInEmailEvent(
       AuthSingInEmailEvent event, Emitter<AuthState> emit) async {
@@ -124,25 +124,21 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       //   await _user?.updatePhoneNumber(PhoneAuthCredential());
       // }
       if (event.photoURL != null && _user != null && event.photoURL != '') {
+
         await _user?.updatePhotoURL(event.photoURL!);
       }
+      if(event.password !=null &&
+          _user != null){
+          await _user?.updatePassword(event.password!);
+      }
+      final reqvest = await _firebaseAuth.currentUser;
+      if (reqvest !=null) {
+        emit(state.copyWith(user: MyUser.setUserCredential(reqvest!)));
+      }
+
     }catch(e){
       print(e.toString());
     }
-    try {
-        final reqvest = await _firebaseAuth.currentUser;
-        if (reqvest !=null) {
-
-
-          emit(state.copyWith(user: MyUser.setUserCredential(reqvest!)));
-        }
-      } catch (e) {
-        emit(state.copyWith(error: e.toString()));
-        print(e.toString());
-      }
-
-
-
   }
 
 

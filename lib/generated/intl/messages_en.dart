@@ -27,12 +27,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "Language_R": MessageLookupByLibrary.simpleMessage("Russian"),
         "SettingsScreen":
             MessageLookupByLibrary.simpleMessage("Страница настроек"),
-        "about_app": MessageLookupByLibrary.simpleMessage("О приложение"),
+        "about_app": MessageLookupByLibrary.simpleMessage("About the app"),
         "application_version":
-            MessageLookupByLibrary.simpleMessage("Bерсия приложения"),
+            MessageLookupByLibrary.simpleMessage("Application_version"),
         "change_password":
-            MessageLookupByLibrary.simpleMessage("Изменить пароль"),
+            MessageLookupByLibrary.simpleMessage("Change password"),
+        "error_old_password":
+            MessageLookupByLibrary.simpleMessage("Old password does not match"),
         "household": MessageLookupByLibrary.simpleMessage("Household"),
+        "log": MessageLookupByLibrary.simpleMessage("Authorize by"),
         "logScrenn": MessageLookupByLibrary.simpleMessage(
             "Страница авторизации регистрации"),
         "log_Authorization":
@@ -47,23 +50,30 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Registration"),
         "log_email_incorrect": MessageLookupByLibrary.simpleMessage(
             "Incorrect email entered. Please check the entered data!"),
-        "log_email_or_phone": MessageLookupByLibrary.simpleMessage(
-            "Authorize by phone number or Email:"),
         "log_empty": MessageLookupByLibrary.simpleMessage(
             "Это поле обязательно для заполнения."),
         "log_password_incorrect": MessageLookupByLibrary.simpleMessage(
             "The password must contain a number, lowercase and uppercase Latin letters"),
         "log_password_incorrect_one":
             MessageLookupByLibrary.simpleMessage("Password does not match!"),
+        "log_phone": MessageLookupByLibrary.simpleMessage("phone number"),
+        "log_phone_incorrect": MessageLookupByLibrary.simpleMessage(
+            "Incorrect phone number entered. Please check the entered data!"),
         "log_reg_title":
             MessageLookupByLibrary.simpleMessage("Welcome to our family!!!"),
+        "log_terms_of_Use":
+            MessageLookupByLibrary.simpleMessage("Terms of use."),
+        "log_terms_of_Use_no": MessageLookupByLibrary.simpleMessage(
+            "Please confirm your acceptance of the user agreement!"),
         "log_title": MessageLookupByLibrary.simpleMessage("My Family Calendar"),
+        "new_password": MessageLookupByLibrary.simpleMessage("New password"),
         "not_determined":
             MessageLookupByLibrary.simpleMessage("Not determined"),
+        "old_password": MessageLookupByLibrary.simpleMessage("Old password"),
         "prof_name": MessageLookupByLibrary.simpleMessage("User Name"),
         "prof_sav": MessageLookupByLibrary.simpleMessage("Save changes"),
-        "reg_email_or_phone": MessageLookupByLibrary.simpleMessage(
-            "Register using your phone number or Email:"),
+        "reg": MessageLookupByLibrary.simpleMessage("Register using your"),
+        "reg_or": MessageLookupByLibrary.simpleMessage("or"),
         "schoolboy": MessageLookupByLibrary.simpleMessage("Schoolboy"),
         "self_employed": MessageLookupByLibrary.simpleMessage("Self-employed"),
         "social_role": MessageLookupByLibrary.simpleMessage("Social role"),

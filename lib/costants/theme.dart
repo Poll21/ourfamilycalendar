@@ -1,28 +1,33 @@
 import 'package:flutter/material.dart';
 
 final kDarkTheme = ThemeData().copyWith(
-  buttonTheme: ButtonThemeData(
-    buttonColor: Colors.red
+  checkboxTheme: CheckboxThemeData(
+    fillColor: MaterialStatePropertyAll<Color>(Colors.black54),
+    checkColor: MaterialStatePropertyAll<Color>(Colors.white),
   ),
-  iconTheme: IconThemeData(color: Colors.red),
-iconButtonTheme: IconButtonThemeData(),
+  buttonTheme: ButtonThemeData(buttonColor: Colors.red),
+  iconTheme: IconThemeData(color: Colors.white),
+  iconButtonTheme: IconButtonThemeData(
+    style:
+        ButtonStyle(iconColor: MaterialStatePropertyAll<Color>(Colors.white)),
+  ),
   appBarTheme: const AppBarTheme(color: Colors.black),
-  scaffoldBackgroundColor: Colors.black45,
-  focusColor: Colors.pink,
+  scaffoldBackgroundColor: Colors.grey,
+  focusColor: Colors.red,
   textTheme: const TextTheme(
     headlineLarge: TextStyle(
         fontWeight: FontWeight.w700,
-        fontSize: 18,
+        fontSize: 20,
         fontFamily: 'Montserrat',
         color: Colors.white),
     headlineMedium: TextStyle(
         fontWeight: FontWeight.w700,
-        fontSize: 16,
+        fontSize: 18,
         fontFamily: 'Montserrat',
         color: Colors.white),
     headlineSmall: TextStyle(
         fontWeight: FontWeight.w700,
-        fontSize: 14,
+        fontSize: 16,
         fontFamily: 'Montserrat',
         color: Colors.white),
     titleLarge: TextStyle(
@@ -86,8 +91,6 @@ iconButtonTheme: IconButtonThemeData(),
         fontFamily: 'Montserrat',
         color: Colors.black),
   ),
-
-
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
           backgroundColor: Colors.black54,
@@ -102,9 +105,11 @@ iconButtonTheme: IconButtonThemeData(),
           ))),
   textSelectionTheme: TextSelectionThemeData(
       cursorColor: Colors.white,
-      selectionColor: Colors.grey,
+      selectionColor: Colors.black54,
       selectionHandleColor: Colors.grey),
   inputDecorationTheme: const InputDecorationTheme(
+    hintStyle: TextStyle(color: Colors.grey),
+    suffixIconColor: Colors.white,
     enabledBorder: OutlineInputBorder(
       gapPadding: 50,
       borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -117,7 +122,7 @@ iconButtonTheme: IconButtonThemeData(),
     errorBorder: OutlineInputBorder(
       gapPadding: 50,
       borderRadius: BorderRadius.all(Radius.circular(8)),
-      borderSide: BorderSide(width: 2, color: Colors.red),
+      borderSide: BorderSide(width: 2, color: Color(0xffb0564f)),
     ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -126,11 +131,12 @@ iconButtonTheme: IconButtonThemeData(),
     focusedErrorBorder: OutlineInputBorder(
       gapPadding: 50,
       borderRadius: BorderRadius.all(Radius.circular(8)),
-      borderSide: BorderSide(width: 3, color: Colors.redAccent),
+      borderSide: BorderSide(width: 3, color: Color(0xffb0564f)),
     ),
     border: OutlineInputBorder(),
   ),
   primaryColor: Colors.white,
+  drawerTheme: DrawerThemeData(backgroundColor: Colors.grey,)
 );
 
 final kLightTheme = ThemeData().copyWith();

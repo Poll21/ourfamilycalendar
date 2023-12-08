@@ -10,6 +10,7 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _user = context.read<AuthBloc>().state.user;
+    final _photoURL =_user?.photoURL ?? '';
     return Column(
       children: [
         DrawerHeader(
@@ -22,16 +23,8 @@ class MyDrawer extends StatelessWidget {
                   CircleAvatar(
                     radius: 50,
                     backgroundImage: NetworkImage(
-                        'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
-                  ),
-                  CircleAvatar(
-                    radius: 12,
-                    backgroundColor: Colors.black26,
-                    child: InkWell(
-                      child: Icon(Icons.add),
-                      onTap: () {},
-                    ),
-                  )
+                        (_photoURL !='') ? _photoURL
+                            :'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg')),
                 ],
               ),
               Text(_user?.displayName ?? 'Пользователь', style: const TextStyle(color: Colors.black)),

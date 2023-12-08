@@ -6,10 +6,8 @@ abstract class Screens {
   static const home = "/home";
   static const settings = "/home/settings";
   static const changePassword = "/home/settings/change_password";
-  // static const loginScreen = "/loginScreen";
-  // static const noUserAuthorization = "/noUserAuthorization";
-  // static const restoreConfirm = "/loginScreen/restoreConfirm";
-  // static const gCaptcha = "/gCaptcha";
+  static const getImage = "/home/settings/getImage";
+
 }
 
 class MainNavigation {
@@ -20,6 +18,7 @@ class MainNavigation {
     Screens.home: (_) => _screenFactory.makeHomeScreen(),
     Screens.settings: (_) => _screenFactory.makeSettingsScreen(),
     Screens.changePassword: (_) => _screenFactory.makeChangePasswordScreen(),
+    Screens.getImage: (_) => _screenFactory.makeGetImagesScreen(),
     // Screens.loginScreen: (_) => _screenFactory.makeLoginScreen(),
     // Screens.restoreConfirm: (_) => _screenFactory.makeRestoreConfirm(),
   };

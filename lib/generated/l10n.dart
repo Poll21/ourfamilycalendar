@@ -70,21 +70,31 @@ class S {
     );
   }
 
-  /// `Register using your phone number or Email:`
-  String get reg_email_or_phone {
+  /// `Register using your`
+  String get reg {
     return Intl.message(
-      'Register using your phone number or Email:',
-      name: 'reg_email_or_phone',
+      'Register using your',
+      name: 'reg',
       desc: '',
       args: [],
     );
   }
 
-  /// `Authorize by phone number or Email:`
-  String get log_email_or_phone {
+  /// `or`
+  String get reg_or {
     return Intl.message(
-      'Authorize by phone number or Email:',
-      name: 'log_email_or_phone',
+      'or',
+      name: 'reg_or',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Authorize by`
+  String get log {
+    return Intl.message(
+      'Authorize by',
+      name: 'log',
       desc: '',
       args: [],
     );
@@ -140,6 +150,16 @@ class S {
     );
   }
 
+  /// `phone number`
+  String get log_phone {
+    return Intl.message(
+      'phone number',
+      name: 'log_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Password`
   String get log_Password1 {
     return Intl.message(
@@ -180,6 +200,16 @@ class S {
     );
   }
 
+  /// `Incorrect phone number entered. Please check the entered data!`
+  String get log_phone_incorrect {
+    return Intl.message(
+      'Incorrect phone number entered. Please check the entered data!',
+      name: 'log_phone_incorrect',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `The password must contain a number, lowercase and uppercase Latin letters`
   String get log_password_incorrect {
     return Intl.message(
@@ -205,6 +235,26 @@ class S {
     return Intl.message(
       'Login',
       name: 'log_Login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms of use.`
+  String get log_terms_of_Use {
+    return Intl.message(
+      'Terms of use.',
+      name: 'log_terms_of_Use',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please confirm your acceptance of the user agreement!`
+  String get log_terms_of_Use_no {
+    return Intl.message(
+      'Please confirm your acceptance of the user agreement!',
+      name: 'log_terms_of_Use_no',
       desc: '',
       args: [],
     );
@@ -350,31 +400,61 @@ class S {
     );
   }
 
-  /// `Bерсия приложения`
+  /// `Application_version`
   String get application_version {
     return Intl.message(
-      'Bерсия приложения',
+      'Application_version',
       name: 'application_version',
       desc: '',
       args: [],
     );
   }
 
-  /// `О приложение`
+  /// `About the app`
   String get about_app {
     return Intl.message(
-      'О приложение',
+      'About the app',
       name: 'about_app',
       desc: '',
       args: [],
     );
   }
 
-  /// `Изменить пароль`
+  /// `Change password`
   String get change_password {
     return Intl.message(
-      'Изменить пароль',
+      'Change password',
       name: 'change_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Old password`
+  String get old_password {
+    return Intl.message(
+      'Old password',
+      name: 'old_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Old password does not match`
+  String get error_old_password {
+    return Intl.message(
+      'Old password does not match',
+      name: 'error_old_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New password`
+  String get new_password {
+    return Intl.message(
+      'New password',
+      name: 'new_password',
       desc: '',
       args: [],
     );

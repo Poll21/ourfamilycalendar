@@ -25,18 +25,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "Language": MessageLookupByLibrary.simpleMessage("Язык"),
         "Language_E": MessageLookupByLibrary.simpleMessage("Английский"),
         "Language_R": MessageLookupByLibrary.simpleMessage("Русский"),
-        "about_app": MessageLookupByLibrary.simpleMessage("About the app"),
+        "about_app": MessageLookupByLibrary.simpleMessage("О приложение"),
         "application_version":
-            MessageLookupByLibrary.simpleMessage("Application_version"),
+            MessageLookupByLibrary.simpleMessage("Bерсия приложения"),
         "change_password":
-            MessageLookupByLibrary.simpleMessage("Change password"),
+            MessageLookupByLibrary.simpleMessage("Изменить пароль"),
+        "error_old_password":
+            MessageLookupByLibrary.simpleMessage("Старый пароль не совпадает"),
         "household": MessageLookupByLibrary.simpleMessage("Домашнее хозяйство"),
+        "log": MessageLookupByLibrary.simpleMessage("Пройдите авторизацию по"),
         "logScrenn": MessageLookupByLibrary.simpleMessage(
             "Страница авторизации регистрации"),
         "log_Authorization":
             MessageLookupByLibrary.simpleMessage("Авторизация"),
-        "log_Email":
-            MessageLookupByLibrary.simpleMessage("Адрес электронной почты"),
+        "log_Email": MessageLookupByLibrary.simpleMessage("Email"),
         "log_Login": MessageLookupByLibrary.simpleMessage("Вход"),
         "log_Password1": MessageLookupByLibrary.simpleMessage("Пароль"),
         "log_Password2":
@@ -45,23 +47,30 @@ class MessageLookup extends MessageLookupByLibrary {
         "log_Registration": MessageLookupByLibrary.simpleMessage("Регистрация"),
         "log_email_incorrect": MessageLookupByLibrary.simpleMessage(
             "Введен некорректный E-mail. Пожалуйста, проверьте введенные данные!"),
-        "log_email_or_phone": MessageLookupByLibrary.simpleMessage(
-            "Пройдите авторизацию по номеру телефона иди Email:"),
         "log_empty": MessageLookupByLibrary.simpleMessage(
             "Это поле обязательно для заполнения."),
         "log_password_incorrect": MessageLookupByLibrary.simpleMessage(
             "Пароль должен содержать число, строчнае и заглавные латинскую букву"),
         "log_password_incorrect_one":
             MessageLookupByLibrary.simpleMessage("Пароль не совпадает!"),
+        "log_phone": MessageLookupByLibrary.simpleMessage("номеру телефона"),
+        "log_phone_incorrect": MessageLookupByLibrary.simpleMessage(
+            "Введен некорректный номер телефона. Пожалуйста, проверьте введенные данные!"),
         "log_reg_title": MessageLookupByLibrary.simpleMessage(
             "Добро пожаловать в нашу семью!!!"),
+        "log_terms_of_Use":
+            MessageLookupByLibrary.simpleMessage("Пользовательское соглашение"),
+        "log_terms_of_Use_no": MessageLookupByLibrary.simpleMessage(
+            "Пожалуйста подтвердите согласие с пользовательским соглашением!"),
         "log_title":
             MessageLookupByLibrary.simpleMessage("Мой семейный календарь"),
+        "new_password": MessageLookupByLibrary.simpleMessage("Новый пароль"),
         "not_determined": MessageLookupByLibrary.simpleMessage("Не определена"),
+        "old_password": MessageLookupByLibrary.simpleMessage("Старый пароль"),
         "prof_name": MessageLookupByLibrary.simpleMessage("Имя пользователя"),
         "prof_sav": MessageLookupByLibrary.simpleMessage("Сохранить изменения"),
-        "reg_email_or_phone": MessageLookupByLibrary.simpleMessage(
-            "Пройдите регистрацию по номеру телефона иди Email:"),
+        "reg": MessageLookupByLibrary.simpleMessage("Пройдите регистрацию по"),
+        "reg_or": MessageLookupByLibrary.simpleMessage("или"),
         "schoolboy": MessageLookupByLibrary.simpleMessage("Школьник"),
         "self_employed": MessageLookupByLibrary.simpleMessage("Самозанятый"),
         "social_role": MessageLookupByLibrary.simpleMessage("Cоциальная роль"),
