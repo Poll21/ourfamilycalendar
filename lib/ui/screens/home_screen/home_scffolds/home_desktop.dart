@@ -28,7 +28,6 @@ class _HomeDesktopScaffoldState extends State<HomeDesktopScaffold> {
                 children: [
                   Text('Планы на сегодня'),
                   Expanded(
-
                     child: ListView.builder(
                       itemCount: 10,
                       itemBuilder: (BuildContext context, int index) {

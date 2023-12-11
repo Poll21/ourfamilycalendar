@@ -22,8 +22,10 @@
     "log_terms_of_Use_no": "Please confirm your acceptance of the user agreement!",
 
   "SettingsScreen": "Страница настроек",
+    "prof_sett": "Profile settings:",
       "prof_sav": "Save changes",
       "prof_name": "User Name",
+      "prof_avatar": "Erase photo",
       "theme": "Theme",
       "Language": "Language",
         "Language_R": "Russian",
@@ -35,6 +37,7 @@
         "self_employed":"Self-employed",
         "household":"Household",
         "not_determined": "Not determined",
+  "app_sett": "General settings:",
       "application_version": "Application_version",
         "about_app": "About the app",
       "change_password": "Change password",

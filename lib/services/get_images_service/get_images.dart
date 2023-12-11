@@ -85,16 +85,28 @@ class _GetImagesScreenState extends State<GetImagesScreen> {
             _image ?? const SizedBox.shrink(),
             Visibility(
               visible:  (_image != null),
-                  child: IconButton(
-              icon: const Icon(Icons.account_circle_rounded,
-                    size: 55, ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      IconButton(
+              icon: const Icon(Icons.save,
+                        size: 55, ),
               onPressed: () async{
               final _photoURL = await uploadFiles(context.read<AuthBloc>().state.user!.uid);
              context.read<AuthBloc>().add(AuthUpdateProfileEvent(photoURL: _photoURL));
               Navigator.of(context).pop();
               }
             ),
-                )
+                      IconButton(
+                          icon: const Icon(Icons.delete,
+                            size: 55, ),
+                          onPressed: () => setState(() {
+                            _imageFile =null;
+                          })
+                      ),
+                    ],
+                  ),
+                ),
 
           ],
         ),

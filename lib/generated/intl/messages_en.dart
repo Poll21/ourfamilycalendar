@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "SettingsScreen":
             MessageLookupByLibrary.simpleMessage("Страница настроек"),
         "about_app": MessageLookupByLibrary.simpleMessage("About the app"),
+        "app_sett": MessageLookupByLibrary.simpleMessage("General settings:"),
         "application_version":
             MessageLookupByLibrary.simpleMessage("Application_version"),
         "change_password":
@@ -70,8 +71,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "not_determined":
             MessageLookupByLibrary.simpleMessage("Not determined"),
         "old_password": MessageLookupByLibrary.simpleMessage("Old password"),
+        "prof_avatar": MessageLookupByLibrary.simpleMessage("Erase photo"),
         "prof_name": MessageLookupByLibrary.simpleMessage("User Name"),
         "prof_sav": MessageLookupByLibrary.simpleMessage("Save changes"),
+        "prof_sett": MessageLookupByLibrary.simpleMessage("Profile settings:"),
         "reg": MessageLookupByLibrary.simpleMessage("Register using your"),
         "reg_or": MessageLookupByLibrary.simpleMessage("or"),
         "schoolboy": MessageLookupByLibrary.simpleMessage("Schoolboy"),

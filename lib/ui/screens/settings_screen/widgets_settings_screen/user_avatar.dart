@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:our_family_calendar/blocs/auth_bloc/auth_bloc.dart';
+import 'package:our_family_calendar/generated/l10n.dart';
 import 'package:our_family_calendar/main_navigation.dart';
 
 class UserAvatar extends StatelessWidget {
@@ -14,25 +15,21 @@ class UserAvatar extends StatelessWidget {
       },
       builder: (context, state) {
         final _photoURL =state.user?.photoURL ?? '';
-        return Stack(
-          alignment: AlignmentDirectional.bottomEnd,
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            CircleAvatar(
-              radius: 50,
-              backgroundImage: NetworkImage(
-                  (_photoURL !='') ? _photoURL
-                      :'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+            Stack(
+              alignment: AlignmentDirectional.bottomEnd,
+              children: [
+                CircleAvatar(
+                  radius: 50,
+                  backgroundImage: NetworkImage(
+                      (_photoURL !='') ? _photoURL
+                          :'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+                ),
+
+              ],
             ),
-            CircleAvatar(
-              radius: 12,
-              backgroundColor: Colors.black26,
-              child: InkWell(
-                child: Icon(Icons.add),
-                onTap: () {
-                  Navigator.of(context).pushNamed(Screens.getImage);
-                },
-              ),
-            )
           ],
         );
       },

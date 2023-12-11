@@ -270,6 +270,16 @@ class S {
     );
   }
 
+  /// `Profile settings:`
+  String get prof_sett {
+    return Intl.message(
+      'Profile settings:',
+      name: 'prof_sett',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Save changes`
   String get prof_sav {
     return Intl.message(
@@ -285,6 +295,16 @@ class S {
     return Intl.message(
       'User Name',
       name: 'prof_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Erase photo`
+  String get prof_avatar {
+    return Intl.message(
+      'Erase photo',
+      name: 'prof_avatar',
       desc: '',
       args: [],
     );
@@ -395,6 +415,16 @@ class S {
     return Intl.message(
       'Not determined',
       name: 'not_determined',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `General settings:`
+  String get app_sett {
+    return Intl.message(
+      'General settings:',
+      name: 'app_sett',
       desc: '',
       args: [],
     );

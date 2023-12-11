@@ -11,23 +11,27 @@ final kDarkTheme = ThemeData().copyWith(
     style:
         ButtonStyle(iconColor: MaterialStatePropertyAll<Color>(Colors.white)),
   ),
-  appBarTheme: const AppBarTheme(color: Colors.black),
+  appBarTheme: const AppBarTheme(color: Colors.black, titleTextStyle: TextStyle(
+      fontWeight: FontWeight.w700,
+      fontSize: 20,
+      fontFamily: 'Montserrat',
+      color: Colors.white),),
   scaffoldBackgroundColor: Colors.grey,
   focusColor: Colors.red,
   textTheme: const TextTheme(
     headlineLarge: TextStyle(
         fontWeight: FontWeight.w700,
-        fontSize: 20,
+        fontSize: 24,
         fontFamily: 'Montserrat',
         color: Colors.white),
     headlineMedium: TextStyle(
         fontWeight: FontWeight.w700,
-        fontSize: 18,
+        fontSize: 20,
         fontFamily: 'Montserrat',
         color: Colors.white),
     headlineSmall: TextStyle(
         fontWeight: FontWeight.w700,
-        fontSize: 16,
+        fontSize: 18,
         fontFamily: 'Montserrat',
         color: Colors.white),
     titleLarge: TextStyle(

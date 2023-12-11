@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Language_E": MessageLookupByLibrary.simpleMessage("Английский"),
         "Language_R": MessageLookupByLibrary.simpleMessage("Русский"),
         "about_app": MessageLookupByLibrary.simpleMessage("О приложение"),
+        "app_sett": MessageLookupByLibrary.simpleMessage("Общие настройки:"),
         "application_version":
             MessageLookupByLibrary.simpleMessage("Bерсия приложения"),
         "change_password":
@@ -67,8 +68,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "new_password": MessageLookupByLibrary.simpleMessage("Новый пароль"),
         "not_determined": MessageLookupByLibrary.simpleMessage("Не определена"),
         "old_password": MessageLookupByLibrary.simpleMessage("Старый пароль"),
+        "prof_avatar": MessageLookupByLibrary.simpleMessage("Измуеить фото"),
         "prof_name": MessageLookupByLibrary.simpleMessage("Имя пользователя"),
         "prof_sav": MessageLookupByLibrary.simpleMessage("Сохранить изменения"),
+        "prof_sett": MessageLookupByLibrary.simpleMessage("Настройки профиля:"),
         "reg": MessageLookupByLibrary.simpleMessage("Пройдите регистрацию по"),
         "reg_or": MessageLookupByLibrary.simpleMessage("или"),
         "schoolboy": MessageLookupByLibrary.simpleMessage("Школьник"),
