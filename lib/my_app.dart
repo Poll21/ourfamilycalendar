@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:our_family_calendar/blocs/auth_bloc/auth_bloc.dart';
 import 'package:our_family_calendar/blocs/loading_bloc/loading_bloc.dart';
 import 'package:our_family_calendar/blocs/setting_app_bloc/setting_app_bloc.dart';
-import 'package:our_family_calendar/costants/theme.dart';
+import 'package:our_family_calendar/constants/theme.dart';
 import 'package:our_family_calendar/generated/l10n.dart';
 import 'package:our_family_calendar/main_navigation.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';

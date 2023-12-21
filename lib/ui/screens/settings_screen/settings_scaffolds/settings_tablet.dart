@@ -5,6 +5,7 @@ import 'package:our_family_calendar/generated/l10n.dart';
 import 'package:our_family_calendar/main_navigation.dart';
 import 'package:our_family_calendar/ui/screens/components_screens/my_drawer.dart';
 import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/application%20_version.dart';
+import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/change_password.dart';
 import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/display_name.dart';
 import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/social_role.dart';
 import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/user_avatar.dart';
@@ -18,7 +19,7 @@ class SettingsTabletScaffolds extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _user = context.read<AuthBloc>().state.user;
-    final _photoURL =_user?.photoURL ?? '';
+    final _photoURL = _user?.photoURL ?? '';
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).log_title),
@@ -29,9 +30,7 @@ class SettingsTabletScaffolds extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             Expanded(
-
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,52 +45,45 @@ class SettingsTabletScaffolds extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Center(
-                              child: Text(S.of(context).prof_sett,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineMedium,
-                               // softWrap: true,
-
-                              maxLines: 2,),
+                              child: Text(
+                                S.of(context).prof_sett,
+                                style:
+                                    Theme.of(context).textTheme.headlineMedium,
+                              ),
                             ),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            Wrap(
+                              spacing: 16,
+                              runSpacing: 8,
+                              crossAxisAlignment: WrapCrossAlignment.center,
                               children: [
                                 CircleAvatar(
                                     radius: 50,
-                                    backgroundImage: NetworkImage(
-                                        (_photoURL !='') ? _photoURL
-                                            :'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg')),
+                                    backgroundImage: NetworkImage((_photoURL !=
+                                            '')
+                                        ? _photoURL
+                                        : 'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg')),
                                 InkWell(
                                   onTap: () {
-                                    Navigator.of(context).pushNamed(Screens.getImage);
+                                    Navigator.of(context)
+                                        .pushNamed(Screens.getImage);
                                   },
                                   child: Text(S.of(context).prof_avatar),
                                 ),
                               ],
                             ),
                             SizedBox(
-                              height: 30,
+                              height: 16,
                             ),
-                            DisplayName(),
-                            SizedBox(
-                              height: 20,
+                            DisplayName(
+                              mobile: true,
                             ),
-                            UserEmail(),
-                            SocialRole(),
-                            InkWell(
-                              onTap: () {
-                                Navigator.of(context)
-                                    .pushNamed(Screens.changePassword);
-                              },
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Text(S.of(context).change_password),
-                                ],
-                              ),
+                            UserEmail(
+                              mobile: true,
                             ),
+                            SocialRoleMobile(
+                              mobile: true,
+                            ),
+                            ChangePassword(),
                           ],
                         ),
                       ),
@@ -109,14 +101,18 @@ class SettingsTabletScaffolds extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(S.of(context).app_sett,
+                                Center(
+                                  child: Text(
+                                    S.of(context).app_sett,
                                     style: Theme.of(context)
                                         .textTheme
-                                        .headlineLarge),
+                                        .headlineMedium,
+                                  ),
+                                ),
                               ],
                             ),
-                            UserTheme(),
-                            UserLocale(),
+                            UserTheme(mobile: true,),
+                            UserLocale(mobile: true,),
                             ApplicationVersion(),
                             ApplicationVersion(),
                           ],

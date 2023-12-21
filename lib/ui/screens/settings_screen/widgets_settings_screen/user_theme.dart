@@ -4,7 +4,9 @@ import 'package:our_family_calendar/blocs/setting_app_bloc/setting_app_bloc.dart
 import 'package:our_family_calendar/generated/l10n.dart';
 
 class UserTheme extends StatelessWidget {
-  const UserTheme({super.key});
+  final bool mobile;
+
+  const UserTheme({super.key, required this.mobile});
 
   @override
   Widget build(BuildContext context) {
@@ -13,76 +15,169 @@ class UserTheme extends StatelessWidget {
         // TODO: implement listener
       },
       builder: (context, state) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(child: Text(S.of(context).theme)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        context.read<SettingAppBloc>().add(
-                            SettingAppSetEvent(
-                                isAuthorized: null,
-                                locale: null,
-                                appTheme: "kLightTheme",
-                                socialRole: null));
-                      },
-                      icon: Icon(
-                        (state.appTheme == "kLightTheme")
-                            ?Icons.expand_circle_down_sharp
-                            :Icons.circle,
-                        color: Colors.white,
-                      )),
-                  IconButton(
-                      onPressed: () {
-                        context.read<SettingAppBloc>().add(
-                            SettingAppSetEvent(
-                                isAuthorized: null,
-                                locale: null,
-                                appTheme: "kDarkTheme", socialRole: null));
-                      },
-                      icon: Icon(
-                        (state.appTheme == "kDarkTheme")
-                            ?Icons.expand_circle_down_sharp
-                            :Icons.circle,
-                        color: Colors.grey,
-                      )),
-                  IconButton(
-                      onPressed: () {
-                        context.read<SettingAppBloc>().add(
-                            SettingAppSetEvent(
-                                isAuthorized: null,
-                                locale: null,
-                                appTheme: "kPinkTheme", socialRole: null));
-                      },
-                      icon: Icon(
-                        (state.appTheme == "kPinkTheme")
-                            ?Icons.expand_circle_down_sharp
-                            :Icons.circle,
-                        color: Colors.pinkAccent,
-                      )),
-                  IconButton(
-                      onPressed: () {
-                        context.read<SettingAppBloc>().add(
-                            SettingAppSetEvent(
-                                isAuthorized: null,
-                                locale: null,
-                                appTheme: "kBlueTheme", socialRole: null));
-                      },
-                      icon: Icon(
-                        (state.appTheme == "kBlueTheme")
-                            ?Icons.expand_circle_down_sharp
-                            :Icons.circle,
-                        color: Colors.blueAccent,
-                      )),
-                ],
-              )
-            ],
-          ),
+        return Container(
+          height: (mobile) ? 75 : 50,
+          margin: EdgeInsets.symmetric(vertical: 4),
+          padding: EdgeInsets.only(
+              left: 12,
+              right: 4,
+              top: (mobile) ? 12 : 4,
+              bottom: (mobile) ? 0 : 12),
+          width: double.infinity,
+          decoration: BoxDecoration(boxShadow: [
+            BoxShadow(
+                color: Theme.of(context).shadowColor,
+                offset: const Offset(1, 1)),
+          ], color: Colors.black87, borderRadius: BorderRadius.circular(12)),
+          child: (mobile)
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(S.of(context).theme,
+                        style: Theme.of(context).textTheme.bodyLarge),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              context.read<SettingAppBloc>().add(
+                                  SettingAppSetEvent(
+                                      isAuthorized: null,
+                                      locale: null,
+                                      appTheme: "kLightTheme",
+                                      socialRole: null));
+                            },
+                            icon: Icon(
+                              (state.appTheme == "kLightTheme")
+                                  ? Icons.expand_circle_down_sharp
+                                  : Icons.circle,
+                              color: Colors.white,
+                            )),
+                        IconButton(
+                            onPressed: () {
+                              context.read<SettingAppBloc>().add(
+                                  SettingAppSetEvent(
+                                      isAuthorized: null,
+                                      locale: null,
+                                      appTheme: "kDarkTheme",
+                                      socialRole: null));
+                            },
+                            icon: Icon(
+                              (state.appTheme == "kDarkTheme")
+                                  ? Icons.expand_circle_down_sharp
+                                  : Icons.circle,
+                              color: Colors.grey,
+                            )),
+                        IconButton(
+                            onPressed: () {
+                              context.read<SettingAppBloc>().add(
+                                  SettingAppSetEvent(
+                                      isAuthorized: null,
+                                      locale: null,
+                                      appTheme: "kPinkTheme",
+                                      socialRole: null));
+                            },
+                            icon: Icon(
+                              (state.appTheme == "kPinkTheme")
+                                  ? Icons.expand_circle_down_sharp
+                                  : Icons.circle,
+                              color: Colors.pinkAccent,
+                            )),
+                        IconButton(
+                            onPressed: () {
+                              context.read<SettingAppBloc>().add(
+                                  SettingAppSetEvent(
+                                      isAuthorized: null,
+                                      locale: null,
+                                      appTheme: "kBlueTheme",
+                                      socialRole: null));
+                            },
+                            icon: Icon(
+                              (state.appTheme == "kBlueTheme")
+                                  ? Icons.expand_circle_down_sharp
+                                  : Icons.circle,
+                              color: Colors.blueAccent,
+                            )),
+                      ],
+                    )
+                  ],
+                )
+              : Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(S.of(context).theme,
+                        style: Theme.of(context).textTheme.bodyLarge),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              context.read<SettingAppBloc>().add(
+                                  SettingAppSetEvent(
+                                      isAuthorized: null,
+                                      locale: null,
+                                      appTheme: "kLightTheme",
+                                      socialRole: null));
+                            },
+                            icon: Icon(
+                              (state.appTheme == "kLightTheme")
+                                  ? Icons.expand_circle_down_sharp
+                                  : Icons.circle,
+                              color: Colors.white,
+                            )),
+                        IconButton(
+                            onPressed: () {
+                              context.read<SettingAppBloc>().add(
+                                  SettingAppSetEvent(
+                                      isAuthorized: null,
+                                      locale: null,
+                                      appTheme: "kDarkTheme",
+                                      socialRole: null));
+                            },
+                            icon: Icon(
+                              (state.appTheme == "kDarkTheme")
+                                  ? Icons.expand_circle_down_sharp
+                                  : Icons.circle,
+                              color: Colors.grey,
+                            )),
+                        IconButton(
+                            onPressed: () {
+                              context.read<SettingAppBloc>().add(
+                                  SettingAppSetEvent(
+                                      isAuthorized: null,
+                                      locale: null,
+                                      appTheme: "kPinkTheme",
+                                      socialRole: null));
+                            },
+                            icon: Icon(
+                              (state.appTheme == "kPinkTheme")
+                                  ? Icons.expand_circle_down_sharp
+                                  : Icons.circle,
+                              color: Colors.pinkAccent,
+                            )),
+                        IconButton(
+                            onPressed: () {
+                              context.read<SettingAppBloc>().add(
+                                  SettingAppSetEvent(
+                                      isAuthorized: null,
+                                      locale: null,
+                                      appTheme: "kBlueTheme",
+                                      socialRole: null));
+                            },
+                            icon: Icon(
+                              (state.appTheme == "kBlueTheme")
+                                  ? Icons.expand_circle_down_sharp
+                                  : Icons.circle,
+                              color: Colors.blueAccent,
+                            )),
+                      ],
+                    )
+                  ],
+                ),
         );
       },
     );

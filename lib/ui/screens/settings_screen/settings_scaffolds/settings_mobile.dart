@@ -3,6 +3,7 @@ import 'package:our_family_calendar/generated/l10n.dart';
 import 'package:our_family_calendar/main_navigation.dart';
 import 'package:our_family_calendar/ui/screens/components_screens/my_drawer.dart';
 import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/application%20_version.dart';
+import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/change_password.dart';
 import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/display_name.dart';
 import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/social_role.dart';
 import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/user_avatar.dart';
@@ -36,31 +37,18 @@ class SettingsMobileScaffolds extends StatelessWidget {
                     SizedBox(
                       height: 30,
                     ),
-                    DisplayName(),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    UserEmail(),
-                    InkWell(
-                      onTap: (){
-                        Navigator.of(context).pushNamed(Screens.changePassword);
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(S.of(context).change_password),
-                        ],
-                      ),
-                    ),
-                    SocialRole(),
+                    DisplayName(mobile: true,),
+                    UserEmail(mobile: true,),
+                    ChangePassword(),
+                    SocialRoleMobile(mobile: true,),
 
                   ]),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  UserTheme(),
-                  UserLocale(),
+                  UserTheme(mobile: true),
+                  UserLocale(mobile: true),
                   ApplicationVersion(),
                 ],)
             ],

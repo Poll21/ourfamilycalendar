@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 
-bool periodicApi = true;
+
 errorsScreenMethod(BuildContext context, String error) {
     Fluttertoast.showToast(
         msg: error,
