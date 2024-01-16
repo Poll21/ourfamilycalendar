@@ -4,11 +4,11 @@ import 'package:our_family_calendar/blocs/auth_bloc/auth_bloc.dart';
 import 'package:our_family_calendar/generated/l10n.dart';
 import 'package:our_family_calendar/main_navigation.dart';
 import 'package:our_family_calendar/ui/screens/components_screens/my_drawer.dart';
-import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/application%20_version.dart';
+import 'package:our_family_calendar/ui/screens/settings_screen/metod_setting/application_version.dart';
+import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/buttn_text_widget.dart';
 import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/change_password.dart';
 import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/display_name.dart';
 import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/social_role.dart';
-import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/user_avatar.dart';
 import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/user_email.dart';
 import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/user_local.dart';
 import 'package:our_family_calendar/ui/screens/settings_screen/widgets_settings_screen/user_theme.dart';
@@ -22,7 +22,7 @@ class SettingsTabletScaffolds extends StatelessWidget {
     final _photoURL = _user?.photoURL ?? '';
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.of(context).log_title),
+        title: Center(child: Text(S.of(context).log_title)),
       ),
       drawer: const Padding(
           padding: EdgeInsets.only(top: 60), child: Drawer(child: MyDrawer())),
@@ -38,42 +38,51 @@ class SettingsTabletScaffolds extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: Padding(
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(8),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Center(
-                              child: Text(
-                                S.of(context).prof_sett,
-                                style:
-                                    Theme.of(context).textTheme.headlineMedium,
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 8.0),
+                              child: Center(
+                                child: Text(
+                                  S.of(context).prof_sett,
+                                  style:
+                                      Theme.of(context).textTheme.headlineMedium,
+                                ),
                               ),
                             ),
-                            Wrap(
-                              spacing: 16,
-                              runSpacing: 8,
-                              crossAxisAlignment: WrapCrossAlignment.center,
-                              children: [
-                                CircleAvatar(
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Center(
+                                child: CircleAvatar(
                                     radius: 50,
                                     backgroundImage: NetworkImage((_photoURL !=
                                             '')
                                         ? _photoURL
                                         : 'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg')),
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.of(context)
-                                        .pushNamed(Screens.getImage);
-                                  },
-                                  child: Text(S.of(context).prof_avatar),
-                                ),
-                              ],
+                              ),
                             ),
-                            SizedBox(
-                              height: 16,
+                            Container(
+                              height: 50,
+                              margin: const EdgeInsets.symmetric(vertical: 4),
+                              padding: const EdgeInsets.all(12),
+                              width: double.infinity,
+                              decoration: BoxDecoration(boxShadow: [
+                                BoxShadow(
+                                    color: Theme.of(context).shadowColor, offset: const Offset(1, 1)),
+                              ], color: Colors.black87, borderRadius: BorderRadius.circular(12)),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pushNamed(Screens.getImage);
+                                },
+                                child: Text(S.of(context).prof_avatar),
+                              ),
                             ),
+
                             DisplayName(
                               mobile: true,
                             ),
@@ -92,29 +101,30 @@ class SettingsTabletScaffolds extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: Padding(
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(8),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Center(
-                                  child: Text(
-                                    S.of(context).app_sett,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineMedium,
-                                  ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 8.0),
+                              child: Center(
+                                child: Text(
+                                  S.of(context).app_sett,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium,
                                 ),
-                              ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 116,
                             ),
                             UserTheme(mobile: true,),
                             UserLocale(mobile: true,),
-                            ApplicationVersion(),
-                            ApplicationVersion(),
+                            ButtonTextWidget(title: S.of(context).application_version,onTap: applicationVersion(context)),
+                            ButtonTextWidget(title: S.of(context).application_version,),
                           ],
                         ),
                       ),

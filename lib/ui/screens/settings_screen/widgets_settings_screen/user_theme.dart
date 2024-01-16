@@ -17,11 +17,11 @@ class UserTheme extends StatelessWidget {
       builder: (context, state) {
         return Container(
           height: (mobile) ? 75 : 50,
-          margin: EdgeInsets.symmetric(vertical: 4),
+          margin: const EdgeInsets.symmetric(vertical: 4),
           padding: EdgeInsets.only(
               left: 12,
               right: 4,
-              top: (mobile) ? 12 : 4,
+              top: (mobile) ? 4 : 4,
               bottom: (mobile) ? 0 : 12),
           width: double.infinity,
           decoration: BoxDecoration(boxShadow: [
@@ -31,13 +31,13 @@ class UserTheme extends StatelessWidget {
           ], color: Colors.black87, borderRadius: BorderRadius.circular(12)),
           child: (mobile)
               ? Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(S.of(context).theme,
                         style: Theme.of(context).textTheme.bodyLarge),
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         IconButton(
@@ -54,6 +54,7 @@ class UserTheme extends StatelessWidget {
                                   ? Icons.expand_circle_down_sharp
                                   : Icons.circle,
                               color: Colors.white,
+                              size: 20,
                             )),
                         IconButton(
                             onPressed: () {
@@ -69,6 +70,7 @@ class UserTheme extends StatelessWidget {
                                   ? Icons.expand_circle_down_sharp
                                   : Icons.circle,
                               color: Colors.grey,
+                              size: 20,
                             )),
                         IconButton(
                             onPressed: () {
@@ -84,6 +86,7 @@ class UserTheme extends StatelessWidget {
                                   ? Icons.expand_circle_down_sharp
                                   : Icons.circle,
                               color: Colors.pinkAccent,
+                              size: 20,
                             )),
                         IconButton(
                             onPressed: () {
@@ -99,6 +102,7 @@ class UserTheme extends StatelessWidget {
                                   ? Icons.expand_circle_down_sharp
                                   : Icons.circle,
                               color: Colors.blueAccent,
+                              size: 20,
                             )),
                       ],
                     )

@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 final kDarkTheme = ThemeData().copyWith(
     progressIndicatorTheme: ProgressIndicatorThemeData(color: Colors.white),
     checkboxTheme: CheckboxThemeData(
-      fillColor: MaterialStatePropertyAll<Color>(Colors.black54),
-      checkColor: MaterialStatePropertyAll<Color>(Colors.white),
+
+      fillColor: MaterialStatePropertyAll<Color>(Colors.white),
+      checkColor: MaterialStatePropertyAll<Color>(Colors.black54),
     ),
     buttonTheme: ButtonThemeData(buttonColor: Colors.red),
     iconTheme: IconThemeData(color: Colors.white),
@@ -117,7 +118,9 @@ final kDarkTheme = ThemeData().copyWith(
         selectionColor: Colors.black54,
         selectionHandleColor: Colors.grey),
     inputDecorationTheme: const InputDecorationTheme(
-      hintStyle: TextStyle(color: Colors.grey),
+      hintStyle: TextStyle(  fontWeight: FontWeight.w400,
+          fontSize: 14,
+          fontFamily: 'Montserrat', color: Colors.grey),
       suffixIconColor: Colors.white,
       enabledBorder: OutlineInputBorder(
         gapPadding: 50,
@@ -145,7 +148,9 @@ final kDarkTheme = ThemeData().copyWith(
       border: OutlineInputBorder(),
     ),
     primaryColor: Colors.white,
-    drawerTheme: DrawerThemeData(backgroundColor: Color(0xFF1C1B1F)));
+    drawerTheme: DrawerThemeData(backgroundColor: Color(0xFF1C1B1F)),
+    primaryColorLight: Colors.grey,
+);
 
 final kLightTheme = ThemeData().copyWith();
 final kBlueTheme = ThemeData().copyWith();

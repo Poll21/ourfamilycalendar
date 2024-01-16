@@ -32,11 +32,8 @@ class _LoginScreenState extends State<LoginScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(S.of(context).log_title),
-            ],
+          title: Center(
+            child: Text(S.of(context).log_title),
           ),
         ),
         body: Center(
@@ -60,15 +57,18 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: Theme.of(context).textTheme.headlineLarge,
                         ),
                       ),
-                      Padding(
+                      Container(
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: Text(S.of(context).log_reg_title,
-                            style: Theme.of(context).textTheme.headlineMedium),
+                        child: Text(
+                          S.of(context).log_reg_title,
+                          style: Theme.of(context).textTheme.headlineMedium,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                       Center(
                         child: Text(
                           (_regOrLog) ? S.of(context).reg : S.of(context).log,
-                          style: Theme.of(context).textTheme.displayMedium,
+                          style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ),
                       Text.rich(TextSpan(children: [
@@ -76,13 +76,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             ? TextSpan(
                                 text: S.of(context).log_phone,
                                 style:
-                                    Theme.of(context).textTheme.displayMedium,
+                                    Theme.of(context).textTheme.bodySmall,
                               )
                             : TextSpan(
                                 text: S.of(context).log_phone,
                                 style: Theme.of(context)
                                     .textTheme
-                                    .displayMedium!
+                                    .bodySmall!
                                     .copyWith(
                                         decoration: TextDecoration.underline),
                                 recognizer: TapGestureRecognizer()
@@ -90,19 +90,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                       () => setState(() => _phonLog = true)),
                         TextSpan(
                           text: " ${S.of(context).reg_or} ",
-                          style: Theme.of(context).textTheme.displayMedium,
+                          style: Theme.of(context).textTheme.bodySmall,
                         ),
                         (!_phonLog)
                             ? TextSpan(
                                 text: S.of(context).log_Email,
                                 style:
-                                    Theme.of(context).textTheme.displayMedium,
+                                    Theme.of(context).textTheme.bodySmall,
                               )
                             : TextSpan(
                                 text: S.of(context).log_Email,
                                 style: Theme.of(context)
                                     .textTheme
-                                    .displayMedium!
+                                    .bodySmall!
                                     .copyWith(
                                         decoration: TextDecoration.underline),
                                 recognizer: TapGestureRecognizer()
@@ -279,80 +279,86 @@ class _LoginScreenState extends State<LoginScreen> {
                             }
                           },
                           builder: (context, state) {
-                            return ElevatedButton(
-                                onPressed: () {
-                                  if (_formKey.currentState?.validate() !=
-                                      null) {
-                                    if (_regOrLog) {
-                                      if (_termsOfUse) {
-                                        if (_phonLog) {
-                                          context.read<AuthBloc>().add(
-                                              AuthRegistrationPhoneEvent(
-                                                  phoneNumber:
-                                                      emailOrPhoneController
-                                                          .text,
-                                                  password: passwordController1
-                                                      .text));
-                                        } else {
-                                          if (_regOrLog) {
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 8.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    if (_formKey.currentState?.validate() !=
+                                        null) {
+                                      if (_regOrLog) {
+                                        if (_termsOfUse) {
+                                          if (_phonLog) {
                                             context.read<AuthBloc>().add(
-                                                AuthRegistrationEmailEvent(
-                                                    email:
+                                                AuthRegistrationPhoneEvent(
+                                                    phoneNumber:
                                                         emailOrPhoneController
                                                             .text,
-                                                    password:
-                                                        passwordController1
-                                                            .text));
+                                                    password: passwordController1
+                                                        .text));
+                                          } else {
+                                            if (_regOrLog) {
+                                              context.read<AuthBloc>().add(
+                                                  AuthRegistrationEmailEvent(
+                                                      email:
+                                                          emailOrPhoneController
+                                                              .text,
+                                                      password:
+                                                          passwordController1
+                                                              .text));
+                                            }
                                           }
+                                        } else {
+                                          Fluttertoast.showToast(
+                                              msg: S
+                                                  .of(context)
+                                                  .log_terms_of_Use_no,
+                                              toastLength: Toast.LENGTH_LONG,
+                                              gravity: ToastGravity.CENTER,
+                                              timeInSecForIosWeb: 5,
+                                              backgroundColor: Colors.white,
+                                              textColor: Colors.red,
+                                              webShowClose: false,
+                                              webPosition: 'center',
+                                              webBgColor:
+                                                  "linear-gradient(to right, #FFFFFFFF, #FFFFFFFF)",
+                                              fontSize: 16.0);
                                         }
                                       } else {
-                                        Fluttertoast.showToast(
-                                            msg: S
-                                                .of(context)
-                                                .log_terms_of_Use_no,
-                                            toastLength: Toast.LENGTH_LONG,
-                                            gravity: ToastGravity.CENTER,
-                                            timeInSecForIosWeb: 5,
-                                            backgroundColor: Colors.white,
-                                            textColor: Colors.red,
-                                            webShowClose: false,
-                                            webPosition: 'center',
-                                            webBgColor: "linear-gradient(to right, #FFFFFFFF, #FFFFFFFF)",
-
-                                            fontSize: 16.0);
+                                        context.read<AuthBloc>().add(
+                                            AuthSingInEmailEvent(
+                                                email:
+                                                    emailOrPhoneController.text,
+                                                password:
+                                                    passwordController1.text));
                                       }
-                                    } else {
-                                      context.read<AuthBloc>().add(
-                                          AuthSingInEmailEvent(
-                                              email:
-                                                  emailOrPhoneController.text,
-                                              password:
-                                                  passwordController1.text));
                                     }
-                                  }
-                                },
-                                child: Text(
-                                  (_regOrLog)
-                                      ? S.of(context).log_Registration
-                                      : S.of(context).log_Login,
-                                  textAlign: TextAlign.justify,
-                                ));
+                                  },
+                                  child: Text(
+                                    (_regOrLog)
+                                        ? S.of(context).log_Registration
+                                        : S.of(context).log_Login,
+                                    textAlign: TextAlign.justify,
+                                  )),
+                            );
                           },
                         ),
                       ),
-                      TextButton(
-                          onPressed: () {
-                            setState(() {
-                              _regOrLog = !_regOrLog;
-                            });
-                          },
-                          child: Text(
-                            (_regOrLog)
-                                ? S.of(context).log_Login
-                                : S.of(context).log_Registration,
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          )),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: TextButton(
+                            onPressed: () {
+                              setState(() {
+                                _regOrLog = !_regOrLog;
+                              });
+                            },
+                            child: Text(
+                              (_regOrLog)
+                                  ? S.of(context).log_Login
+                                  : S.of(context).log_Registration,
+                              textAlign: TextAlign.center,
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            )),
+                      ),
                       Visibility(
                         visible: (_regOrLog),
                         child: Row(
@@ -372,7 +378,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   S.of(context).log_terms_of_Use,
                                   style: Theme.of(context)
                                       .textTheme
-                                      .displayMedium!
+                                      .bodySmall!
                                       .copyWith(
                                           decoration: TextDecoration.underline),
                                 ))

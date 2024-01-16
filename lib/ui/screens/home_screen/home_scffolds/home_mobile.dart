@@ -20,11 +20,14 @@ class _HomeMobileScaffoldState extends State<HomeMobileScaffold> {
       body: Column(
         children: [
           Expanded(
-            flex: 1,
+            flex: 2,
             child: Container(
               margin: const EdgeInsets.all(4),
-            
-              color: Colors.cyanAccent,
+
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context).shadowColor, offset: const Offset(1, 1)),
+              ], color: Colors.black87, borderRadius: BorderRadius.circular(12)),
               child: Column(
                 children: [
                   const Text('Планы на сегодня'),
@@ -33,7 +36,10 @@ class _HomeMobileScaffoldState extends State<HomeMobileScaffold> {
                       itemCount: 10,
                       itemBuilder: (BuildContext context, int index) {
                      return Container(
-                       color: Colors.cyan,
+                       decoration: BoxDecoration(boxShadow: [
+                         BoxShadow(
+                             color: Theme.of(context).shadowColor, offset: const Offset(1, 1)),
+                       ], color: Colors.black87, borderRadius: BorderRadius.circular(12)),
                        margin: const EdgeInsets.all(4),
                        padding:const EdgeInsets.all(4),
                        height: 70,
@@ -59,10 +65,15 @@ class _HomeMobileScaffoldState extends State<HomeMobileScaffold> {
                     return Padding(
                       padding: const EdgeInsets.all(4),
                       child: Container(
-                        color: Colors.deepPurple,
-                       child: const Column(
+                        constraints: BoxConstraints(maxHeight: 20),
+
+                        decoration: BoxDecoration(boxShadow: [
+                          BoxShadow(
+                              color: Theme.of(context).shadowColor, offset: const Offset(1, 1)),
+                        ], color: Colors.black87, borderRadius: BorderRadius.circular(12)),
+                       child: Column(
                          children: [
-                           Text('Севодня'),
+                           Text('Сегодня $index'),
 
 
                          ],
