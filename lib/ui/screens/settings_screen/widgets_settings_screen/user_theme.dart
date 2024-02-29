@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:our_family_calendar/blocs/auth_bloc/auth_bloc.dart';
 import 'package:our_family_calendar/blocs/setting_app_bloc/setting_app_bloc.dart';
 import 'package:our_family_calendar/generated/l10n.dart';
 
@@ -10,6 +11,7 @@ class UserTheme extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _userId = context.read<AuthBloc>().state.user!.uid;
     return BlocConsumer<SettingAppBloc, SettingAppState>(
       listener: (context, state) {
         // TODO: implement listener
@@ -44,10 +46,8 @@ class UserTheme extends StatelessWidget {
                             onPressed: () {
                               context.read<SettingAppBloc>().add(
                                   SettingAppSetEvent(
-                                      isAuthorized: null,
-                                      locale: null,
-                                      appTheme: "kLightTheme",
-                                      socialRole: null));
+                                      appTheme: "kLightTheme", userId: _userId,
+                                      ));
                             },
                             icon: Icon(
                               (state.appTheme == "kLightTheme")
@@ -60,10 +60,8 @@ class UserTheme extends StatelessWidget {
                             onPressed: () {
                               context.read<SettingAppBloc>().add(
                                   SettingAppSetEvent(
-                                      isAuthorized: null,
-                                      locale: null,
                                       appTheme: "kDarkTheme",
-                                      socialRole: null));
+                                      userId: _userId));
                             },
                             icon: Icon(
                               (state.appTheme == "kDarkTheme")
@@ -76,10 +74,9 @@ class UserTheme extends StatelessWidget {
                             onPressed: () {
                               context.read<SettingAppBloc>().add(
                                   SettingAppSetEvent(
-                                      isAuthorized: null,
-                                      locale: null,
-                                      appTheme: "kPinkTheme",
-                                      socialRole: null));
+
+                                      appTheme: "kPinkTheme", userId: _userId,
+                                     ));
                             },
                             icon: Icon(
                               (state.appTheme == "kPinkTheme")
@@ -92,10 +89,8 @@ class UserTheme extends StatelessWidget {
                             onPressed: () {
                               context.read<SettingAppBloc>().add(
                                   SettingAppSetEvent(
-                                      isAuthorized: null,
-                                      locale: null,
                                       appTheme: "kBlueTheme",
-                                      socialRole: null));
+                                      userId: _userId));
                             },
                             icon: Icon(
                               (state.appTheme == "kBlueTheme")
@@ -122,10 +117,8 @@ class UserTheme extends StatelessWidget {
                             onPressed: () {
                               context.read<SettingAppBloc>().add(
                                   SettingAppSetEvent(
-                                      isAuthorized: null,
-                                      locale: null,
                                       appTheme: "kLightTheme",
-                                      socialRole: null));
+                                      userId: _userId));
                             },
                             icon: Icon(
                               (state.appTheme == "kLightTheme")
@@ -137,10 +130,8 @@ class UserTheme extends StatelessWidget {
                             onPressed: () {
                               context.read<SettingAppBloc>().add(
                                   SettingAppSetEvent(
-                                      isAuthorized: null,
-                                      locale: null,
                                       appTheme: "kDarkTheme",
-                                      socialRole: null));
+                                      userId: _userId));
                             },
                             icon: Icon(
                               (state.appTheme == "kDarkTheme")
@@ -152,10 +143,9 @@ class UserTheme extends StatelessWidget {
                             onPressed: () {
                               context.read<SettingAppBloc>().add(
                                   SettingAppSetEvent(
-                                      isAuthorized: null,
-                                      locale: null,
+
                                       appTheme: "kPinkTheme",
-                                      socialRole: null));
+                                      userId: _userId));
                             },
                             icon: Icon(
                               (state.appTheme == "kPinkTheme")
@@ -167,10 +157,9 @@ class UserTheme extends StatelessWidget {
                             onPressed: () {
                               context.read<SettingAppBloc>().add(
                                   SettingAppSetEvent(
-                                      isAuthorized: null,
-                                      locale: null,
+
                                       appTheme: "kBlueTheme",
-                                      socialRole: null));
+                                      userId: _userId));
                             },
                             icon: Icon(
                               (state.appTheme == "kBlueTheme")

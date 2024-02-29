@@ -4,15 +4,16 @@ part of 'setting_app_bloc.dart';
 abstract class SettingAppEvent {}
 
 class SettingAppGetEvent extends SettingAppEvent{
-
 }
 
 class SettingAppSetEvent extends SettingAppEvent{
+  final String userId;
+  final String? groupId;
   final String? locale;
   final String? appTheme;
   final String? socialRole;
   final bool? isAuthorized;
 
 
-  SettingAppSetEvent({required this.isAuthorized, required this.locale, required this.socialRole, required this.appTheme});
+  SettingAppSetEvent({required this.userId, this.groupId, this.isAuthorized,  this.locale,  this.socialRole,  this.appTheme});
 }

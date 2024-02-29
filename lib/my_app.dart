@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:our_family_calendar/blocs/auth_bloc/auth_bloc.dart';
+import 'package:our_family_calendar/blocs/internet_connect/internet_connect_cubit.dart';
 import 'package:our_family_calendar/blocs/loading_bloc/loading_bloc.dart';
 import 'package:our_family_calendar/blocs/setting_app_bloc/setting_app_bloc.dart';
 import 'package:our_family_calendar/constants/theme.dart';
@@ -18,39 +19,46 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => LoadingBloc(),
-        ),
-        BlocProvider(
-          create: (context) => AuthBloc(),
-        ),
-      ],
+    return BlocListener<InternetConnectCubit, InternetConnectState>(
+      listener: (context, internetState) {
+        String connect = "unknown";
+        switch (internetState.type) {
+          case InternetType.online:
+            connect = 'online';
+            break;
+          case InternetType.offline:
+            connect = 'offline';
+            break;
+            case InternetType.unknown:
+            connect = 'unknown';
+            break;
+        }
+        print(connect);
+      },
       child: BlocConsumer<SettingAppBloc, SettingAppState>(
         listener: (context, state) {
           // TODO: implement listener
         },
         builder: (context, state) {
-          ThemeData? _myTheme;
+          ThemeData? myTheme;
           switch (state.appTheme) {
             case 'kLightTheme':
-              _myTheme = kLightTheme;
+              myTheme = kLightTheme;
               break;
             case 'kDarkTheme':
-              _myTheme = kDarkTheme;
+              myTheme = kDarkTheme;
               break;
             case 'kBlueTheme':
-              _myTheme = kBlueTheme;
+              myTheme = kBlueTheme;
               break;
             case 'kLightTheme':
-              _myTheme = kPinkTheme;
+              myTheme = kPinkTheme;
               break;
           }
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'OurFamilyCalendar',
-            theme: _myTheme,
+            theme: myTheme,
             locale: Locale(state.locale),
             localizationsDelegates: const [
               S.delegate,

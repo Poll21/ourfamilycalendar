@@ -4,6 +4,7 @@ import 'package:our_family_calendar/blocs/auth_bloc/auth_bloc.dart';
 import 'package:our_family_calendar/blocs/setting_app_bloc/setting_app_bloc.dart';
 import 'package:our_family_calendar/generated/l10n.dart';
 import 'package:our_family_calendar/main_navigation.dart';
+import 'package:our_family_calendar/services/firebase/database_service.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -38,8 +39,8 @@ class MyDrawer extends StatelessWidget {
         ),
         DrawerButton(
           title: 'Профтль',
-          onTap: () {
-            // Navigator.of(context).popAndPushNamed(Screens.home);
+          onTap: () async{
+            await DatabaseService().getSettingsUser(_user!.uid);
           },
           icon: const Icon(Icons.person),
         ),
@@ -61,11 +62,11 @@ class MyDrawer extends StatelessWidget {
           title: 'Выти',
           onTap: () {
             context.read<AuthBloc>().add(AuthLogOutEvent());
-            context.read<SettingAppBloc>().add(SettingAppSetEvent(
-                isAuthorized: false,
-                locale: null,
-                appTheme: null,
-                socialRole: null));
+            // context.read<SettingAppBloc>().add(SettingAppSetEvent(
+            //     isAuthorized: false,
+            //     locale: null,
+            //     appTheme: null,
+            //     socialRole: null, userId: ''));
             Navigator.of(context).popAndPushNamed(Screens.main);
           },
           icon: const Icon(Icons.logout),

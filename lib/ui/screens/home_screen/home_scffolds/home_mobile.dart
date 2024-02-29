@@ -15,72 +15,75 @@ class _HomeMobileScaffoldState extends State<HomeMobileScaffold> {
     return Scaffold(
       appBar: AppBar(),
       drawer: const Padding(
-          padding: EdgeInsets.only(top: 60),
-          child: Drawer(child: MyDrawer())),
+          padding: EdgeInsets.only(top: 60), child: Drawer(child: MyDrawer())),
       body: Column(
         children: [
-          Expanded(
-            flex: 2,
-            child: Container(
-              margin: const EdgeInsets.all(4),
+          Container(
+            margin: EdgeInsets.only(top: 4,left: 4, right: 8,bottom: 4),
+            height: 70,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 10,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  margin: EdgeInsets.all(4),
+                  padding: EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                            color: Theme.of(context).shadowColor,
+                            offset: const Offset(1, 1)),
+                      ],
+                      color: Colors.black87,
+                      borderRadius: BorderRadius.circular(12)),
 
-              decoration: BoxDecoration(boxShadow: [
-                BoxShadow(
-                    color: Theme.of(context).shadowColor, offset: const Offset(1, 1)),
-              ], color: Colors.black87, borderRadius: BorderRadius.circular(12)),
-              child: Column(
-                children: [
-                  const Text('Планы на сегодня'),
-                  Expanded(
-                    child: ListView.builder(
-                      itemCount: 10,
-                      itemBuilder: (BuildContext context, int index) {
-                     return Container(
-                       decoration: BoxDecoration(boxShadow: [
-                         BoxShadow(
-                             color: Theme.of(context).shadowColor, offset: const Offset(1, 1)),
-                       ], color: Colors.black87, borderRadius: BorderRadius.circular(12)),
-                       margin: const EdgeInsets.all(4),
-                       padding:const EdgeInsets.all(4),
-                       height: 70,
-                       child:  Text('$index'),
-                     );
-                    },),
-                  )
-
-                ],
-              ),
+                  width: 70,
+                  child: Text('$index'),
+                );
+              },
             ),
           ),
           Expanded(
-            flex: 1,
-            child: SizedBox(
-              width: double.infinity,
-              child: GridView.builder(
-                  padding: const EdgeInsets.all(4),
-                itemCount: 4,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2),
-                  itemBuilder: (context, index){
-                    return Padding(
-                      padding: const EdgeInsets.all(4),
-                      child: Container(
-                        constraints: BoxConstraints(maxHeight: 20),
+            child: Container(
+              margin: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        color: Theme.of(context).shadowColor,
+                        offset: const Offset(1, 1)),
+                  ],
+                  color: Colors.black87,
+                  borderRadius: BorderRadius.circular(12)),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    const Text('Планы на сегодня'),
+                    Expanded(
+                      child: ListView.builder(
 
-                        decoration: BoxDecoration(boxShadow: [
-                          BoxShadow(
-                              color: Theme.of(context).shadowColor, offset: const Offset(1, 1)),
-                        ], color: Colors.black87, borderRadius: BorderRadius.circular(12)),
-                       child: Column(
-                         children: [
-                           Text('Сегодня $index'),
-
-
-                         ],
-                       ),
+                        itemCount: 10,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Container(
+                            decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Theme.of(context).shadowColor,
+                                      offset: const Offset(1, 1)),
+                                ],
+                                color: Colors.black87,
+                                borderRadius: BorderRadius.circular(12)),
+                            margin: const EdgeInsets.all(4),
+                            padding: const EdgeInsets.all(4),
+                            height: 70,
+                            child: Text('$index'),
+                          );
+                        },
                       ),
-                    );
-                  }),
+                    )
+                  ],
+                ),
+              ),
             ),
           ),
         ],

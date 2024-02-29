@@ -5,7 +5,7 @@ import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 import 'package:our_family_calendar/blocs/loading_bloc/loading_bloc.dart';
-import 'package:our_family_calendar/domain/my_user.dart';
+import 'package:our_family_calendar/domain/my_user/my_user.dart';
 import 'package:our_family_calendar/my_app.dart';
 part 'auth_event.dart';
 

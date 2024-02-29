@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:our_family_calendar/blocs/auth_bloc/auth_bloc.dart';
 import 'package:our_family_calendar/blocs/setting_app_bloc/setting_app_bloc.dart';
 import 'package:our_family_calendar/generated/l10n.dart';
 import 'package:our_family_calendar/ui/screens/components_screens/colors_button.dart';
@@ -96,6 +97,7 @@ class ChangeLanguageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _userId = context.read<AuthBloc>().state.user!.uid;
     return BlocBuilder<SettingAppBloc, SettingAppState>(
       builder: (context, state) {
         return Column(
@@ -106,9 +108,7 @@ class ChangeLanguageWidget extends StatelessWidget {
                 onTap: () {
                   context.read<SettingAppBloc>().add(SettingAppSetEvent(
                       locale: 'ru',
-                      isAuthorized: null,
-                      appTheme: null,
-                      socialRole: null));
+                      userId: _userId));
                   Navigator.pop(context);
                 },
                 child: Container(
@@ -138,9 +138,7 @@ class ChangeLanguageWidget extends StatelessWidget {
                 onTap: () {
                   context.read<SettingAppBloc>().add(SettingAppSetEvent(
                       locale: 'en',
-                      isAuthorized: null,
-                      appTheme: null,
-                      socialRole: null));
+                      userId: _userId));
                   Navigator.pop(context);
                 },
                 child: Container(

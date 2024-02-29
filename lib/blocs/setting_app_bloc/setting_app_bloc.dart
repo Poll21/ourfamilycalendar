@@ -1,15 +1,26 @@
+import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:flutter/material.dart';
+import 'package:our_family_calendar/domain/settings_user/settings_user_firebase.dart';
+import 'package:our_family_calendar/domain/settings_user/user_setting.dart';
 import 'package:our_family_calendar/my_app.dart';
+import 'package:our_family_calendar/services/firebase/database_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'setting_app_event.dart';
 
 part 'setting_app_state.dart';
 
+
 class SettingAppBloc extends Bloc<SettingAppEvent, SettingAppState> {
-  SettingAppBloc() : super(const SettingAppInit()) {
+
+  late final StreamSubscription _connectivityStream;
+
+  SettingAppBloc()
+      :super(const SettingAppInit()) {
+
+
     on<SettingAppGetEvent>((event, emit) async {
       await _onSettingAppGetEvent(event, emit);
     }, transformer: sequential());
@@ -21,6 +32,7 @@ class SettingAppBloc extends Bloc<SettingAppEvent, SettingAppState> {
 
   _onSettingAppGetEvent(
       SettingAppGetEvent event, Emitter<SettingAppState> emit) async {
+
     final sharedPrefs = await SharedPreferences.getInstance();
     final _local = sharedPrefs.getString('locale');
     final _appTheme = sharedPrefs.getString('appTheme');
@@ -38,18 +50,25 @@ class SettingAppBloc extends Bloc<SettingAppEvent, SettingAppState> {
 
   _onSettingAppSetEvent(
       SettingAppSetEvent event, Emitter<SettingAppState> emit) async {
-    if (event.locale != null) {
-      final sharedPrefs = await SharedPreferences.getInstance();
-      sharedPrefs.setString('locale', event.locale!);
-    }
-    if (event.appTheme != null) {
-      final sharedPrefs = await SharedPreferences.getInstance();
-      sharedPrefs.setString('appTheme', event.appTheme!);
-    }
-    if (event.socialRole != null) {
-      final sharedPrefs = await SharedPreferences.getInstance();
-      sharedPrefs.setString('socialRole', event.socialRole!);
-    }
+    final _settingsUser = SettingsUserFirebase(
+        settings: UserSetting(
+            locale: event.locale ?? state.locale,
+            appTheme: event.appTheme ?? state.appTheme,
+            socialRole: event.socialRole ?? state.socialRole),
+        idUser: event.userId);
+    await DatabaseService().addSettingsUser(_settingsUser);
+    // if (event.locale != null) {
+    //   final sharedPrefs = await SharedPreferences.getInstance();
+    //   sharedPrefs.setString('locale', event.locale!);
+    // }
+    // if (event.appTheme != null) {
+    //   final sharedPrefs = await SharedPreferences.getInstance();
+    //   sharedPrefs.setString('appTheme', event.appTheme!);
+    // }
+    // if (event.socialRole != null) {
+    //   final sharedPrefs = await SharedPreferences.getInstance();
+    //   sharedPrefs.setString('socialRole', event.socialRole!);
+    // }
 
     emit(state.copyWith(
       locale: event.locale,
@@ -59,4 +78,5 @@ class SettingAppBloc extends Bloc<SettingAppEvent, SettingAppState> {
       error: '',
     ));
   }
+
 }

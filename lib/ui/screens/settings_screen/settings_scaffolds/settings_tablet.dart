@@ -83,16 +83,16 @@ class SettingsTabletScaffolds extends StatelessWidget {
                               ),
                             ),
 
-                            DisplayName(
+                            const DisplayName(
                               mobile: true,
                             ),
-                            UserEmail(
+                            const UserEmail(
                               mobile: true,
                             ),
-                            SocialRoleMobile(
+                            const SocialRoleMobile(
                               mobile: true,
                             ),
-                            ChangePassword(),
+                            const ChangePassword(),
                           ],
                         ),
                       ),
@@ -118,12 +118,12 @@ class SettingsTabletScaffolds extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 116,
                             ),
-                            UserTheme(mobile: true,),
-                            UserLocale(mobile: true,),
-                            ButtonTextWidget(title: S.of(context).application_version,onTap: applicationVersion(context)),
+                            const UserTheme(mobile: true,),
+                            const UserLocale(mobile: true,),
+                            ButtonTextWidget(title: S.of(context).application_version,),
                             ButtonTextWidget(title: S.of(context).application_version,),
                           ],
                         ),

@@ -8,7 +8,10 @@ class FirebasePush{
   final _firebaseMessaging = FirebaseMessaging.instance;
   Future<void> initNotifications() async{
     await _firebaseMessaging.requestPermission();
-   final fCMToken = await _firebaseMessaging.getToken();
+
+   final fCMToken = await _firebaseMessaging.getToken(
+     vapidKey: 'BG9KEICK-zDsXdoziaQBjtJuRDtNjvS1gmZFin5d1HPDtF9VXFSzrxgKKKAkiUe4BvGcNCF5YMhBi4N-J5Wp54s'
+   );
    print(fCMToken);
    FirebaseMessaging.onBackgroundMessage(handleBackgroundMessage);
 
